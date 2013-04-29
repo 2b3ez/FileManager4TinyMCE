@@ -1,0 +1,8 @@
+.ff-container .affix input{display: none;}
+.ff-container .affix label{margin-bottom:10px;}
+.container-fluid{padding-right:0 !important;margin-top:60px !important;}
+.ff-items li img{height:100px;max-width:140px;width:auto;background-color:#FFF;padding:5px;}
+.ff-items li h4{border-top:1px solid #EEE;margin-top:5px !important;padding-top:5px !important;}
+.ff-items li p{margin-bottom:0 !important;height:22px !important;display:block;}
+.ff-items li.noml{margin-left:0 !important;}
+.qq-uploader .span9{margin-left:14px !important;width:690px !important;}
