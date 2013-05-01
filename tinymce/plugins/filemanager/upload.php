@@ -17,7 +17,9 @@ if(isset($_FILES['qqfile'])){
 			$name=time().'.'.$file_ext;
 			$temp=$_FILES['qqfile']['tmp_name'];
 			move_uploaded_file($temp,$upload_dir.$name);
-			$response=array('success' => true, 'file' => $name, 'size' => $_FILES['qqfile']['size'], 'max' => $MaxSizeUpload);
+			$response=array('success' => true
+					//, 'file' => $name, 'size' => $_FILES['qqfile']['size'], 'max' => $MaxSizeUpload
+					);
 		}else{
 			$response=array('error' => lang_Error_extension);
 		}
