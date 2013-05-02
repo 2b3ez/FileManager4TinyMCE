@@ -1,6 +1,14 @@
 <?
 include 'config.php';
 
+if (isset($_GET['fldr']) && !empty($_GET['fldr'])) {
+    $subdir = trim($_GET['fldr'],'/') . '/';
+}
+else
+    $subdir = '';
+
+$cur_dir = $upload_dir . $subdir;
+
 if (isset($_GET['del_file'])) {
     @unlink($upload_dir . $_GET['del_file']);
 }
@@ -57,7 +65,7 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                             '</li>',
                         classes: {
                             success: 'alert alert-success',
-                            fail: 'alert alert-error',
+                            fail: 'alert alert-error'
                         },
                         failedUploadTextDisplay: {
                             mode: 'custom',
@@ -92,13 +100,13 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                     });
                 });
                 function apply(file){
-                    var path = '<? echo $upload_dir; ?>';
+                    var path = '<? echo $cur_dir; ?>';
                     var track = $('#track').val();
                     var target = window.parent.document.getElementById(track+'_ifr');
                     var closed = window.parent.document.getElementsByClassName('mce-filemanager');
                     var ext_check=file.split('.');
                     var ext = ext_check[1];
-                    var ext_img=new Array('jpg','jpeg','png','gif','bmp','tiff');
+                    var ext_img=new Array('<? echo implode("','", $ext_img)?>');
                     var fill='';
                     if($.inArray(ext, ext_img) > -1){
                         fill=$("<img />",{"src":path+file});
@@ -109,7 +117,7 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                     $(closed).find('.mce-close').trigger('click');
                 }
                 function apply_img(file){
-                    var path = '<? echo $upload_dir; ?>';
+                    var path = '<? echo $cur_dir; ?>';
                     var track = $('#track').val();
                     var target = window.parent.document.getElementsByClassName('mce-img_'+track);
                     var closed = window.parent.document.getElementsByClassName('mce-filemanager');
@@ -128,7 +136,7 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                         <br />
                         <input id="select-type-1" name="radio-sort" type="radio" data-item="ff-item-type-1" checked="checked" />
                         <label for="select-type-1" class="btn ff-label-type-1"><? echo lang_Files; ?></label>
-                        <br />	
+                        <br />    
                         <input id="select-type-2" name="radio-sort" type="radio" data-item="ff-item-type-2" />
                         <label for="select-type-2" class="btn ff-label-type-2"><? echo lang_Images; ?></label>
                         <br />
@@ -138,19 +146,55 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                     <div class="span10 pull-right">
                         <ul class="thumbnails ff-items">
                             <?
-                            $ext_img = array('jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff');
-                            $ext_file = array('doc', 'docx', 'pdf', 'xls', 'xlsx', 'txt', 'csv');
-                            $ext_misc = array('zip', 'rar');
                             $class_ext = '';
                             $src = '';
-                            $dir = opendir($root.$upload_dir);
+                            $dir = opendir($root . $cur_dir);
                             $i = 0;
                             if (isset($_GET['img_only']))
                                 $apply = 'apply_img';
                             else
                                 $apply = 'apply';
-                            while ($file = readdir($dir)) {
-                                if ($file != '.' && $file != '..' && !is_dir($root.$upload_dir . $file)) {
+                            
+                            $files = scandir($root . $cur_dir);
+                            
+                            //foreach ($files as $file) {
+                            foreach ($files as $file) {
+                                if (is_dir($root . $cur_dir . $file) && $file != '.' ) {
+                                    $class_ext = 3;
+                                    if($file=='..' && trim($subdir) != ''){
+                                        //print_r(realpath($root . $cur_dir . $file));
+                                        $src = str_replace($root.$upload_dir,'',realpath($root . $cur_dir . $file).'/');
+                                    }
+                                    elseif ($file!='..') {
+                                        $src = $subdir . $file;
+                                    }
+                                    else{
+                                        continue;
+                                    }
+                                    if ($k % 4 == 0) {
+                                        $ml = 'noml';
+                                    } else {
+                                        $ml = '';
+                                    }
+                                    ?>
+                                    <li class="span3 ff-item-type-dir <?=$ml?>">
+                                        <div class="thumbnail">
+                                            <h4><? echo $file ?></h4>
+                                            <p class="clearfix">
+                                                <a href="dialog.php?img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?= $src ?>" class="btn btn-mini btn-primary pull-left">
+                                                    <? echo lang_Open; ?>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <?
+                                    $k++;
+                                }
+                            }
+
+                            //while (false !== ($file = readdir($dir))) {
+                            foreach ($files as $file) {
+                                if ($file != '.' && $file != '..' && !is_dir($root . $cur_dir . $file)) {
                                     $ext = substr($file, -3);
                                     if ($ext == 'peg' || $ext == 'ocx' || $ext == 'lsx')
                                         $ext = substr($file, -4);
@@ -159,7 +203,7 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                                         $src = 'img/pdf.gif';
                                     } else if (in_array($ext, $ext_img)) {
                                         $class_ext = 2;
-                                        $src = $wwwroot . $upload_dir . $file;
+                                        $src = $wwwroot . $cur_dir . $file;
                                     } else if (in_array($ext, $ext_misc)) {
                                         $class_ext = 3;
                                         $src = 'img/compress.gif';
@@ -174,7 +218,14 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                                         <div class="thumbnail">
                                             <img data-src="holder.js/140x100" alt="140x100" src="<? echo $src; ?>" height="100">
                                                 <h4><? echo substr($file, 0, '-' . (strlen($ext) + 1)); ?></h4>
-                                                <p class="clearfix"><a href="#" onclick="<? echo $apply; ?>('<? echo $file; ?>')" class="btn btn-mini btn-primary pull-left"><? echo lang_Select; ?></a><a href="dialog.php?del_file=<? echo $file; ?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>" class="btn btn-mini btn-danger pull-right" onclick="return confirm('<? echo lang_Confirm_del; ?>');"><? echo lang_Erase; ?></a></p>
+                                                <p class="clearfix">
+                                                    <a href="#" onclick="<? echo $apply; ?>('<? echo $file; ?>')" class="btn btn-mini btn-primary pull-left">
+                                                        <? echo lang_Select; ?>
+                                                    </a>
+                                                    <a href="dialog.php?del_file=<? echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?= $src ?>" class="btn btn-mini btn-danger pull-right" onclick="return confirm('<? echo lang_Confirm_del; ?>');">
+                                                        <? echo lang_Erase; ?>
+                                                    </a>
+                                                </p>
                                         </div>
                                     </li>
                                     <?
