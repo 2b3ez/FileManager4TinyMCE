@@ -1,6 +1,7 @@
 <?
 define('lang_Select','Select');
 define('lang_Erase','Erase');
+define('lang_Open','Open');
 define('lang_Confirm_del','Are you sure you want to delete this file?');
 define('lang_All','All');
 define('lang_Files','Files');
