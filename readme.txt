@@ -17,7 +17,8 @@ _________________________________________________________
 2. open filemanager/config.php
 3. set your settings like upload_dir…
 4. Save and upload config.php
-5. Settings of tynimce should be like :
+5. Edit "file" property in both plugins/image/plugin.min.js and plugins/filemanager/plugin.min.js for proper path to dialog.php
+6. Settings of tynimce should be like :
 
  selector: "textarea",
     theme: "modern",
