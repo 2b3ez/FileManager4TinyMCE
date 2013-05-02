@@ -10,7 +10,7 @@ else
 $cur_dir = $upload_dir . $subdir;
 
 if (isset($_GET['del_file'])) {
-    @unlink($upload_dir . $_GET['del_file']);
+    @unlink($root. $cur_dir . $_GET['del_file']);
 }
 if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
     require_once 'lang/' . $_GET['lang'] . '.php';
@@ -38,7 +38,8 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                         request: {
                             endpoint: 'upload.php',
                             params: {
-                                lang : '<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>'
+                                lang : '<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>',
+                                fldr : '<? echo $subdir ?>'
                             }
                         },
                         dragAndDrop: {
@@ -222,7 +223,7 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
                                                     <a href="#" onclick="<? echo $apply; ?>('<? echo $file; ?>')" class="btn btn-mini btn-primary pull-left">
                                                         <? echo lang_Select; ?>
                                                     </a>
-                                                    <a href="dialog.php?del_file=<? echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?= $src ?>" class="btn btn-mini btn-danger pull-right" onclick="return confirm('<? echo lang_Confirm_del; ?>');">
+                                                    <a href="dialog.php?del_file=<? echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?= $subdir ?>" class="btn btn-mini btn-danger pull-right" onclick="return confirm('<? echo lang_Confirm_del; ?>');">
                                                         <? echo lang_Erase; ?>
                                                     </a>
                                                 </p>
