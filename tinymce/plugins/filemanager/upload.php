@@ -2,7 +2,7 @@
 
 include 'config.php';
 
-if (isset($_POST['lang'])) {
+if (isset($_POST['lang']) && $_POST['lang'] != 'undefined') {
     require_once 'lang/' . $_POST['lang'] . '.php';
 } else {
     require_once 'lang/en_EN.php';
