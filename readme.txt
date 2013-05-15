@@ -8,6 +8,8 @@ License: http://opensource.org/licenses/GPL-3.0
 
 Creator : mybeeez@gmail.com - b3ez
 
+          info@albertoperipolli.com - tr1pp0
+
 _________________________________________________________
 ! Installation
 _________________________________________________________
@@ -18,7 +20,7 @@ _________________________________________________________
 3. set your settings like upload_dir…
 4. Save and upload config.php
 5. Edit "file" property in both plugins/image/plugin.min.js and plugins/filemanager/plugin.min.js for proper path to dialog.php
-6. Settings of tynimce should be like :
+6. Settings of tinymce should be like :
 
  selector: "textarea",
     theme: "modern",
@@ -33,6 +35,8 @@ _________________________________________________________
    toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect forecolor backcolor | link unlink anchor | filemanager image media | print preview code"
  }); 
 
+P.S.: if you have a site with url-rewriting is required to edit both plugin.min.js files and change the relative url after file: to a absolute url "/path/to/file" otherwise
+
 _________________________________________________________
 ! Credits
 _________________________________________________________
@@ -41,5 +45,11 @@ Special Thanks to Alberto Peripolli for his great contribution update
 
 Bootstrap
 => go to site :  http://twitter.github.io/bootstrap/
+
+Bootstrap Lightbox
+=> go to site :  http://jbutz.github.io/bootstrap-lightbox/
+
+Dropzonejs
+=> go to site :  http://www.dropzonejs.com/
 _________________________________________________________
 Enjoy !
