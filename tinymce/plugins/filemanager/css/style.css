@@ -1,8 +1,36 @@
 .ff-container .affix input{display: none;}
 .ff-container .affix label{margin-bottom:10px;}
-.container-fluid{padding-right:0 !important;margin-top:60px !important;}
-.ff-items li img{height:100px;max-width:140px;width:auto;background-color:#FFF;padding:5px;}
-.ff-items li h4{border-top:1px solid #EEE;margin-top:5px !important;padding-top:5px !important;}
+.container-fluid{padding-right:0 !important;margin-top:10px !important;}
+.ff-items li{text-align:center; position:relative;}
+.ff-items li a{color:black;}
+.ff-items li img{height:60px; max-width:120px; width:auto;}
+.ff-items li h4,.ff-items li h3{border-top:1px solid #EEE;margin-top:5px !important;padding-top:5px !important; line-height:16px; margin-bottom:0px;}
 .ff-items li p{margin-bottom:0 !important;height:22px !important;display:block;}
 .ff-items li.noml{margin-left:0 !important;}
 .qq-uploader .span9{margin-left:14px !important;width:690px !important;}
+.space10{ clear:both; height:10px; }
+.ff-item-type-dir{ background-color:#f4f4f4; }
+h4{ font-size:12px; font-weight:normal;}
+h3{ font-size:14px;}
+.container-fluid{ padding:0px 10px !important;}
+.btn-toolbar{ position:absolute; top:0px; left: 0px; margin: 0px; width: 100%;}
+.btn-group{position:absolute; top:0px; left: 0px; margin:0px; width: 100%;}
+.preview,.edit{ padding-left:19px; padding-right:18px;}
+.erase-button{position: absolute; top:0px; right: 0px;}
+.filters{ margin-top:0px; padding-bottom:10px; border-bottom:1px solid #eeeeee;} 
+.uploader{
+	position:absolute;
+	top:100px;
+	margin:auto;
+	width:100%;
+	z-index:9999;
+	background:#eeeeee;
+	padding-top:20px;
+	display:none;
+}
+.download-form{
+	margin-bottom:25px;
+}
+.directory-img{
+	margin-top:25px;
+}

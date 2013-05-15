@@ -37,12 +37,9 @@ _________________________________________________________
 ! Credits
 _________________________________________________________
 
+Special Thanks to Alberto Peripolli for his great contribution update
+
 Bootstrap
 => go to site :  http://twitter.github.io/bootstrap/
-
-Fine Uploader 3.5 
-=> go to site : http://fineuploader.com/
-We used Fine Uploader Open Source license, we have modified a bit to bootstrapped it more.
-
 _________________________________________________________
 Enjoy !

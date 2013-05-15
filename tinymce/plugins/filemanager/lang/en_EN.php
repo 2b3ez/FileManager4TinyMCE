@@ -10,4 +10,17 @@ define('lang_Archives','Archives');
 define('lang_Error_Upload','The uploaded file exceeds the max size allowed.');
 define('lang_Error_extension','File extension is not allowed.');
 define('lang_Upload_file','Upload a file');
+<<<<<<< HEAD
+=======
+define('lang_Filter','Filter');
+define('lang_Videos','Videos');
+define('lang_Music','Music');
+define('lang_New_Folder','New Folder');
+define('lang_Folder_Created','Folder correctly created');
+define('lang_Existing_Folder','Existing folder');
+define('lang_Confirm_Folder_del','Are you sure to delete the folder and all the elements in it?');
+define('lang_Return_Files_List','Return to files list');
+define('lang_Preview','Preview');
+define('lang_Download','Download');
+>>>>>>> v2.0
 ?>
