@@ -1,23 +1,27 @@
-_________________________________________________________
+*********************************************************
 ! FileManager for TinyMCE
-_________________________________________________________
+*********************************************************
 
-FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert file for tinyMCE v.4.x
+FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files and images with tinyMCE v.4.x
+
+DEMO: http://test.albertoperipolli.com/tinymce/
 
 License: http://opensource.org/licenses/GPL-3.0
 
-Creator : mybeeez@gmail.com - b3ez
+Creators : 
 
-          info@albertoperipolli.com - tr1pp0
+mybeeez@gmail.com - b3ez
 
-_________________________________________________________
+info@albertoperipolli.com - tr1pp0
+
+*********************************************************
 ! Installation
-_________________________________________________________
+*********************************************************
 
 1. Upload each folder plugins (images and file manager) to tinymce plugins folder
 (lang file is optionnal)
 2. open filemanager/config.php
-3. set your settings like upload_dir…
+3. set your settings like upload_dir, type extensions,...
 4. Save and upload config.php
 5. Edit "file" property in both plugins/image/plugin.min.js and plugins/filemanager/plugin.min.js for proper path to dialog.php
 6. Settings of tinymce should be like :
@@ -37,9 +41,9 @@ _________________________________________________________
 
 P.S.: if you have a site with url-rewriting is required to edit both plugin.min.js files and change the relative url after file: to a absolute url "/path/to/file" otherwise
 
-_________________________________________________________
+*********************************************************
 ! Credits
-_________________________________________________________
+*********************************************************
 
 Special Thanks to Alberto Peripolli for his great contribution update
 
@@ -51,5 +55,7 @@ Bootstrap Lightbox
 
 Dropzonejs
 => go to site :  http://www.dropzonejs.com/
-_________________________________________________________
+
+*********************************************************
+
 Enjoy !

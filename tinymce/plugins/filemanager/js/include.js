@@ -25,7 +25,8 @@ $(document).ready(function(){
 		return true;
 	});
 	$('.new-folder').click(function(){
-		folder_name=window.prompt('Inserisci il nome della Cartella','Nuova Cartella');
+		folder_name=window.prompt($('#insert_folder_name').val(),'Nuova Cartella');
+		if(folder_name){
 		folder_path=$('#root').val()+$('#cur_dir').val()+ folder_name;
 		$.ajax({
 			  type: "POST",
@@ -34,9 +35,8 @@ $(document).ready(function(){
 			}).done(function( msg ) {
 			window.location.reload();
 		});
+		}
 	});
-	
-	$('.tip').tooltip();
 	
 	var boxes = $('.boxes');
 	boxes.height('auto');

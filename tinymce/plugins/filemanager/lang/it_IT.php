@@ -20,4 +20,6 @@ define('lang_Confirm_Folder_del','Sei sicuro di voler cancellare la cartella e t
 define('lang_Return_Files_List','Ritorna alla lista dei file');
 define('lang_Preview','Anteprima');
 define('lang_Download','Download');
+define('lang_Insert_Folder_Name','Inserisci il nome della cartella:');
+define('lang_Root','base');
 ?>

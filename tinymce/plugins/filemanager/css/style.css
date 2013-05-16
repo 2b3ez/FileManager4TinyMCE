@@ -1,3 +1,4 @@
+body{ background:url(../images/fabric_plaid.png); }
 .ff-container .affix input{display: none;}
 .ff-container .affix label{margin-bottom:10px;}
 .container-fluid{padding-right:0 !important;margin-top:10px !important;}
@@ -12,11 +13,14 @@
 .ff-item-type-dir{ background-color:#f4f4f4; }
 h4{ font-size:12px; font-weight:normal;}
 h3{ font-size:14px;}
+.boxes{ background:white; -webkit-box-shadow:  1px 1px 4px 1px rgba(0, 0, 0, 0.4);box-shadow:  1px 1px 4px 1px rgba(0, 0, 0, 0.4); min-height:115px;}
 .container-fluid{ padding:0px 10px !important;}
-.btn-toolbar{ position:absolute; top:0px; left: 0px; margin: 0px; width: 100%;}
-.btn-group{position:absolute; top:0px; left: 0px; margin:0px; width: 100%;}
-.preview,.edit{ padding-left:19px; padding-right:18px;}
-.erase-button{position: absolute; top:0px; right: 0px;}
+.btn-group{ position:absolute; top:0px; left:0px; margin: 0px; padding:0px; width:100%; text-align:center;}
+.btn-group .btn:hover{ margin:0px;}
+.btn-group a:last-child:hover{padding-left:11px;}
+.preview{ padding-left:19px; padding-right:18px;}
+.preview:hover{ padding-left:18px; padding-right:18px;}
+.top-right{position: absolute; top:0px; right: 0px;}
 .filters{ margin-top:0px; padding-bottom:10px; border-bottom:1px solid #eeeeee;} 
 .uploader{
 	position:absolute;
