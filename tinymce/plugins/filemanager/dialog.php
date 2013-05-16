@@ -1,7 +1,6 @@
 <?
 include 'config.php';
 
-<<<<<<< HEAD
 if (isset($_GET['fldr']) && !empty($_GET['fldr'])) {
     $subdir = trim($_GET['fldr'],'/') . '/';
 }
@@ -18,7 +17,7 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
 } else {
     require_once 'lang/en_EN.php';
 }
-=======
+
 function deleteDir($dirPath) {
     if (! is_dir($dirPath)) {
         return false;
