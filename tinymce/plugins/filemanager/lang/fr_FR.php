@@ -20,6 +20,6 @@ define('lang_Return_Files_List','Revenir à la liste des fichiers');
 define('lang_Preview','Avant-première');
 define('lang_Download','Download');
 define('lang_Insert_Folder_Name','Insérer le nom du dossier:');
-define('lang_Root','base');
+define('lang_Root','Racine');
 
 ?>
