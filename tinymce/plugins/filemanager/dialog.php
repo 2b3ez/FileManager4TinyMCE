@@ -234,7 +234,7 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
 											<button type="submit" title="<?=lang_Download?>" class="btn"><i class="icon-download"></i></button>
 										  
                                             <? if($is_img){ ?>
-                                            	<a class="btn preview" title="<?=lang_Preview?>" data-url="<?=$src;?>" data-toggle="lightbox" href="#demoLightbox"><i class=" icon-eye-open"></i></a>
+                                            	<a class="btn preview" title="<?=lang_Preview?>" data-url="<?=$src;?>" data-toggle="lightbox" href="#previewLightbox"><i class=" icon-eye-open"></i></a>
                                             <? }else{ ?>
                                             	<a class="btn preview disabled"><i class=" icon-eye-open"></i></a>
                                             <? } ?>
@@ -263,7 +263,7 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
             </div>
         
 	<!----- lightbox div end ------->    
-	<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+	<div id="previewLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
 		<div class='lightbox-content'>
 			<img id="full-img" src="">
 		</div>    

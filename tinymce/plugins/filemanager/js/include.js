@@ -13,6 +13,8 @@ $(document).ready(function(){
             }
         }
     });
+
+	$('#full-img').click(function(){$('#previewLightbox').lightbox('hide'); });
 	$('.upload-btn').click(function(){
 		$('.uploader').show(500);
 	});
