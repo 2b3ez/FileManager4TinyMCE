@@ -1,4 +1,4 @@
-<?
+<?php
 $root = rtrim($_SERVER['DOCUMENT_ROOT'],'/');
 
 $wwwroot = '';

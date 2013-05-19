@@ -1,4 +1,4 @@
-<?
+<?php
 if (isset($_POST['lang'])) {
     require_once 'lang/' . $_POST['lang'] . '.php';
 } else {
