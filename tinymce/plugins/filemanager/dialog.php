@@ -168,7 +168,6 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 									}
                                     $class_ext = 3;
                                     if($file=='..' && trim($subdir) != ''){
-                                        //print_r(realpath($root . $cur_dir . $file));
                                         $src = explode('/',$subdir);
 										unset($src[count($src)-2]);
 										$src=implode('/',$src);
@@ -186,7 +185,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                             	<a href="dialog.php?del_folder=<?php echo $file; ?>&type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<?php echo lang_Confirm_Folder_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
 											<?php } ?>
 											<a title="<?php echo lang_Open?>" href="dialog.php?type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $src ?>">
-<img class="directory-img"  src="ico/folder.png" alt="folder" />
+<img class="directory-img"  src="ico/folder<?php if($file=='..') echo "_return"?>.png" alt="folder" />
                                             <h3><?php echo $file ?></h3></a>
                                         </div>
                                     </li>
