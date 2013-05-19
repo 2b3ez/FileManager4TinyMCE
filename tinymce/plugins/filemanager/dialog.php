@@ -67,6 +67,7 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
 		<input type="hidden" id="cur_dir" value="<? echo $cur_dir; ?>" />
 		<input type="hidden" id="root" value="<? echo $root; ?>" />
 		<input type="hidden" id="insert_folder_name" value="<? echo lang_Insert_Folder_Name; ?>" />
+		<input type="hidden" id="new_folder" value="<? echo lang_New_Folder; ?>" />
 		
 <!----- uploader div start ------->
 <div class="uploader">            

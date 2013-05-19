@@ -27,7 +27,7 @@ $(document).ready(function(){
 		return true;
 	});
 	$('.new-folder').click(function(){
-		folder_name=window.prompt($('#insert_folder_name').val(),'Nuova Cartella');
+		folder_name=window.prompt($('#insert_folder_name').val(),$('#new_folder').val());
 		if(folder_name){
 		folder_path=$('#root').val()+$('#cur_dir').val()+ folder_name;
 		$.ajax({
