@@ -62,7 +62,7 @@ function apply(file){
     	
         fill=$("<img />",{"src":path+file});
     }else{
-        fill=$("<a />").attr("href", path+file).text(ext_check[0]);
+        fill=$("<a />").attr("href", path+file).text(file);
     }
     $(target).contents().find('#tinymce').append(fill);
     $(closed).find('.mce-close').trigger('click');

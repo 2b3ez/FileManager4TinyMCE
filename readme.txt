@@ -41,7 +41,7 @@ info@albertoperipolli.com - tr1pp0
 
 P.S.: if you have a site with url-rewriting is required to edit both plugin.min.js files and change the relative url after file: to a absolute url "/path/to/file" otherwise
 
-Localization: ENG,FRA,ITA
+Localization: ENG,FRA,ITA,GER(Oliver Beta)
 
 *********************************************************
 ! Credits

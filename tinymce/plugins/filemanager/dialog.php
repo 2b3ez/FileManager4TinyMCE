@@ -71,9 +71,9 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
 <!----- uploader div start ------->
 <div class="uploader">            
 	<form action="upload.php" id="my-dropzone" class="dropzone">
-		<input type="hidden" name="path" value="<?= $cur_path?>"/>
+		<input type="hidden" name="path" value="<? echo $cur_path?>"/>
 	</form>
-	<center><button class="btn btn-large btn-primary close-uploader"><i class="icon-backward icon-white"></i> <?=lang_Return_Files_List?></button></center>
+	<center><button class="btn btn-large btn-primary close-uploader"><i class="icon-backward icon-white"></i> <? echo lang_Return_Files_List?></button></center>
 	<div class="space10"></div><div class="space10"></div>
 </div>
 <!----- uploader div start ------->
@@ -82,8 +82,8 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
           
           
 <!----- header div start ------->
-			<div class="filters"><button class="btn btn-primary upload-btn" style="margin-left:5px;"><i class="icon-upload icon-white"></i> <?= lang_Upload_file?></button> 
-			<button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <?= lang_New_Folder?></button> <div class="pull-right"><?echo lang_Filter?>: &nbsp;&nbsp;
+			<div class="filters"><button class="btn btn-primary upload-btn" style="margin-left:5px;"><i class="icon-upload icon-white"></i> <? echo  lang_Upload_file?></button> 
+			<button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <? echo  lang_New_Folder?></button> <div class="pull-right"><?echo lang_Filter?>: &nbsp;&nbsp;
 			<input id="select-type-all" name="radio-sort" type="radio" data-item="ff-item-type-all" class="hide" />
                         <label id="ff-item-type-all" for="select-type-all" class="btn btn-info ff-label-type-all"><? echo lang_All; ?></label>
 &nbsp;
@@ -118,7 +118,7 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
 				$link.="&fldr="; 
 				?>
 				<ul class="breadcrumb">
-				<li><a href="<?=$link?>"><i class="icon-home"></i></a> <a href="<?=$link?>"><?=lang_Root?></a> <span class="divider">/</span></li>
+				<li><a href="<? echo $link?>"><i class="icon-home"></i></a> <a href="<? echo $link?>"><? echo lang_Root?></a> <span class="divider">/</span></li>
 				<?
 					$bc=explode('/',$subdir);
 				$tmp_path='';
@@ -126,9 +126,9 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
 				foreach($bc as $k=>$b){ 
 					$tmp_path=$b."/";
 					if($k==count($bc)-2){
-				?> <li class="active"><?=$b?></li><?
+				?> <li class="active"><? echo $b?></li><?
 					}elseif($b!=""){ ?>
-					<li><a href="<?=$link.$tmp_path?>"><?=$b?></a> <span class="divider">/</span></li>
+					<li><a href="<? echo $link.$tmp_path?>"><? echo $b?></a> <span class="divider">/</span></li>
 				<? }
 				}
 				?>
@@ -180,9 +180,9 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
                                     <li class="span2 ff-item-type-dir">
                                         <div class="boxes thumbnail">
                                             <? if($file!=".."){ ?>
-                                            	<a href="dialog.php?del_folder=<? echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?= $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<? echo lang_Confirm_Folder_del; ?>');" title="<?=lang_Erase?>"><i class="icon-trash"></i></a>
+                                            	<a href="dialog.php?del_folder=<? echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<? echo  $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<? echo lang_Confirm_Folder_del; ?>');" title="<? echo lang_Erase?>"><i class="icon-trash"></i></a>
 											<? } ?>
-											<a title="<?=lang_Open?>" href="dialog.php?img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?= $src ?>">
+											<a title="<? echo lang_Open?>" href="dialog.php?img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<? echo  $src ?>">
 <img class="directory-img"  src="ico/folder.png" alt="folder" />
                                             <h3><? echo $file ?></h3></a>
                                         </div>
@@ -227,22 +227,22 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
                                     <li class="span2 ff-item-type-<? echo $class_ext; ?>">
                                         <div class="boxes thumbnail">
 											<form action="force_download.php" method="post" class="download-form">
-											<input type="hidden" name="path" value="<?=$root. $cur_dir. $file?>"/>
-											<input type="hidden" name="name" value="<?=$file?>"/>
+											<input type="hidden" name="path" value="<? echo $root. $cur_dir. $file?>"/>
+											<input type="hidden" name="name" value="<? echo $file?>"/>
 
 												  <div class="btn-group">
-											<button type="submit" title="<?=lang_Download?>" class="btn"><i class="icon-download"></i></button>
+											<button type="submit" title="<? echo lang_Download?>" class="btn"><i class="icon-download"></i></button>
 										  
                                             <? if($is_img){ ?>
-                                            	<a class="btn preview" title="<?=lang_Preview?>" data-url="<?=$src;?>" data-toggle="lightbox" href="#previewLightbox"><i class=" icon-eye-open"></i></a>
+                                            	<a class="btn preview" title="<? echo lang_Preview?>" data-url="<? echo $src;?>" data-toggle="lightbox" href="#previewLightbox"><i class=" icon-eye-open"></i></a>
                                             <? }else{ ?>
                                             	<a class="btn preview disabled"><i class=" icon-eye-open"></i></a>
                                             <? } ?>
-                                            	<a href="dialog.php?del_file=<? echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?= $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<? echo lang_Confirm_del; ?>');" title="<?=lang_Erase?>"><i class="icon-trash"></i></a>
+                                            	<a href="dialog.php?del_file=<? echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<? echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<? echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<? echo  $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<? echo lang_Confirm_del; ?>');" title="<? echo lang_Erase?>"><i class="icon-trash"></i></a>
 												  </div>
 
                                             	</form>
-                                            <a href="#" title="<?= lang_Select?>" onclick="<? echo $apply; ?>('<? echo $file; ?>')">
+                                            <a href="#" title="<? echo  lang_Select?>" onclick="<? echo $apply; ?>('<? echo $file; ?>')">
  <img data-src="holder.js/140x100" alt="140x100" src="<? echo $src; ?>" height="100">
                                                 <h4><? echo substr($file, 0, '-' . (strlen($file_ext) + 1)); ?></h4></a>
 												  
