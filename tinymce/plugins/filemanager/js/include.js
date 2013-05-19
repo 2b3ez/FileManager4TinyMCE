@@ -49,8 +49,6 @@ $(document).ready(function(){
 	boxes.height(maxHeight);
 });
 
-	
-
 function apply(file){
     var path = $('#cur_dir').val();
     var track = $('#track').val();
@@ -62,11 +60,21 @@ function apply(file){
     	
         fill=$("<img />",{"src":path+file});
     }else{
-        fill=$("<a />").attr("href", path+file).text(file);
+        fill=$("<a />").attr("href", path+file).text(file.replace(/\..+$/, ''));
     }
     $(target).contents().find('#tinymce').append(fill);
     $(closed).find('.mce-close').trigger('click');
 }
+
+function apply_link(file){
+    var path = $('#cur_dir').val();
+    var track = $('#track').val();
+    var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+	$('.mce-link_'+track, window.parent.document).val(path+file);
+	$('.mce-text_'+track, window.parent.document).val(file.replace(/\..+$/, ''));
+    $(closed).find('.mce-close').trigger('click');
+}
+
 function apply_img(file){
     var path = $('#cur_dir').val();
     var track = $('#track').val();
@@ -75,3 +83,4 @@ function apply_img(file){
     $(target).val(path+file);
     $(closed).find('.mce-close').trigger('click');
 }
+	

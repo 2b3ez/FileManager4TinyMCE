@@ -19,11 +19,11 @@ info@albertoperipolli.com - tr1pp0
 *********************************************************
 
 1. Upload each folder plugins (images and file manager) to tinymce plugins folder
-(lang file is optionnal)
+(lang file is optional)
 2. open filemanager/config.php
 3. set your settings like upload_dir, type extensions,...
 4. Save and upload config.php
-5. Edit "file" property in both plugins/image/plugin.min.js and plugins/filemanager/plugin.min.js for proper path to dialog.php
+5. Edit "file" property in both plugins/image/plugin.min.js and plugins/link/plugin.min.js for proper path to dialog.php
 6. Settings of tinymce should be like :
 
  selector: "textarea",
@@ -36,7 +36,7 @@ info@albertoperipolli.com - tr1pp0
          "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
          "table contextmenu directionality emoticons paste textcolor filemanager"
    ],
-   toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect forecolor backcolor | link unlink anchor | filemanager image media | print preview code"
+   toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect forecolor backcolor | link unlink anchor | image media | print preview code"
  }); 
 
 P.S.: if you have a site with url-rewriting is required to edit both plugin.min.js files and change the relative url after file: to a absolute url "/path/to/file" otherwise

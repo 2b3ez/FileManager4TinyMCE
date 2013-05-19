@@ -41,7 +41,7 @@ if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
 } else {
     require_once 'lang/en_EN.php';
 }
-if(!isset($_GET['img_only'])) $_GET['img_only']=0;
+if(!isset($_GET['type'])) $_GET['type']=0;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -112,14 +112,14 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
 <!----- breadcrumb div start ------->
 				<div class="row-fluid">
 				<?php 
-				$link="dialog.php?img_only=".$_GET['img_only']."&editor=";
+				$link="dialog.php?type=".$_GET['type']."&editor=";
 				$link.=$_GET['editor'] ? $_GET['editor'] : 'mce_0';
 				$link.="&lang=";
 				$link.=$_GET['lang'] ? $_GET['lang'] : 'en_EN';
 				$link.="&fldr="; 
 				?>
 				<ul class="breadcrumb">
-				<li><a href="<?php echo $link?>"><i class="icon-home"></i></a> <a href="<?php echo $link?>"><?php echo lang_Root?></a> <span class="divider">/</span></li>
+				<li><a href="<?php echo $link?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
 				<?
 					$bc=explode('/',$subdir);
 				$tmp_path='';
@@ -147,9 +147,11 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
                             $dir = opendir($root . $cur_dir);
                             $i = 0;
 							$k=0;
-                            if ($_GET['img_only']==1)
+                            if ($_GET['type']==1)
                                 $apply = 'apply_img';
-                            else
+                            elseif($_GET['type']==2)
+                                $apply = 'apply_link';
+							else
                                 $apply = 'apply';
                             
                             $files = scandir($root . $cur_dir);
@@ -181,9 +183,9 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
                                     <li class="span2 ff-item-type-dir">
                                         <div class="boxes thumbnail">
                                             <?php if($file!=".."){ ?>
-                                            	<a href="dialog.php?del_folder=<?php echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<?php echo lang_Confirm_Folder_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
+                                            	<a href="dialog.php?del_folder=<?php echo $file; ?>&type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<?php echo lang_Confirm_Folder_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
 											<?php } ?>
-											<a title="<?php echo lang_Open?>" href="dialog.php?img_only=<?echo $_GET['img_only']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $src ?>">
+											<a title="<?php echo lang_Open?>" href="dialog.php?type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $src ?>">
 <img class="directory-img"  src="ico/folder.png" alt="folder" />
                                             <h3><?php echo $file ?></h3></a>
                                         </div>
@@ -239,7 +241,7 @@ if(!isset($_GET['img_only'])) $_GET['img_only']=0;
                                             <?php }else{ ?>
                                             	<a class="btn preview disabled"><i class=" icon-eye-open"></i></a>
                                             <?php } ?>
-                                            	<a href="dialog.php?del_file=<?php echo $file; ?>&img_only=<?echo $_GET['img_only']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<?php echo lang_Confirm_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
+                                            	<a href="dialog.php?del_file=<?php echo $file; ?>&type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<?php echo lang_Confirm_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
 												  </div>
 
                                             	</form>
