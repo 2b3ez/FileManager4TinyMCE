@@ -59,6 +59,23 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 		<script type="text/javascript" src="js/dropzone.min.js"></script>
 		<script>
 	    	var ext_img=new Array('<?php echo implode("','", $ext_img)?>');
+	    	var allowed_ext=new Array('<?php echo implode("','", $ext)?>');
+
+			//dropzone config
+			Dropzone.options.myAwesomeDropzone = {
+				dictInvalidFileType: "<?php echo lang_Error_extension;?>",
+				dictFileTooBig: "<?php echo lang_Error_Upload; ?>",
+				dictResponseError: "SERVER ERROR",
+				paramName: "file", // The name that will be used to transfer the file
+				maxFilesize: <?php echo $MaxSizeUpload; ?>, // MB
+				accept: function(file, done) {
+				var extension=file.name.split('.').pop();
+				  if ($.inArray(extension, allowed_ext) > -1) {
+				    done();
+				  }
+				  else { done("<?php echo lang_Error_extension;?>"); }
+				}
+			};
 	    </script>
 		<script type="text/javascript" src="js/include.js"></script>
     </head>
@@ -71,8 +88,11 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 		
 <!----- uploader div start ------->
 <div class="uploader">            
-	<form action="upload.php" id="my-dropzone" class="dropzone">
+	<form action="upload.php" id="myAwesomeDropzone" class="dropzone">
 		<input type="hidden" name="path" value="<?php echo $cur_path?>"/>
+		<div class="fallback">
+	    	<input name="file" type="file" multiple />
+	  	</div>
 	</form>
 	<center><button class="btn btn-large btn-primary close-uploader"><i class="icon-backward icon-white"></i> <?php echo lang_Return_Files_List?></button></center>
 	<div class="space10"></div><div class="space10"></div>

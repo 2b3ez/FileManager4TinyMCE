@@ -8,7 +8,7 @@ define('lang_Files','Files');
 define('lang_Images','Immagini');
 define('lang_Archives','Archivi');
 define('lang_Error_Upload','Il file caricato supera i limiti imposti.');
-define('lang_Error_extension','L\'estenzione del file nonn è permessa.');
+define('lang_Error_extension','Il tipo del file caricato non è permesso.');
 define('lang_Upload_file','Carica un file');
 define('lang_Filter','Filtro');
 define('lang_Videos','Video');
