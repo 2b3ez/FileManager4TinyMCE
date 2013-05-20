@@ -104,7 +104,10 @@ if(!isset($_GET['type'])) $_GET['type']=0;
           
 <!----- header div start ------->
 			<div class="filters"><button class="btn btn-primary upload-btn" style="margin-left:5px;"><i class="icon-upload icon-white"></i> <?php echo  lang_Upload_file?></button> 
-			<button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <?php echo  lang_New_Folder?></button> <div class="pull-right"><?echo lang_Filter?>: &nbsp;&nbsp;
+			<button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <?php echo  lang_New_Folder?></button> 
+
+<?php if($_GET['type']!=1){ ?>
+<div class="pull-right"><?echo lang_Filter?>: &nbsp;&nbsp;
 			<input id="select-type-all" name="radio-sort" type="radio" data-item="ff-item-type-all" class="hide" />
                         <label id="ff-item-type-all" for="select-type-all" class="btn btn-info ff-label-type-all"><?php echo lang_All; ?></label>
 &nbsp;
@@ -123,6 +126,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                         <input id="select-type-5" name="radio-sort" type="radio" data-item="ff-item-type-5" class="hide"  />
                         <label id="ff-item-type-5" for="select-type-5" class="btn ff-label-type-5"><?php echo lang_Music; ?></label>
 </div>
+<?php } ?>
 </div>
 
 <!----- header div end ------->
