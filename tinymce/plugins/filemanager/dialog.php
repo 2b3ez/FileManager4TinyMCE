@@ -1,4 +1,4 @@
-<?
+<?php
 include 'config.php';
 
 function deleteDir($dirPath) {
