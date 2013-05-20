@@ -1,4 +1,3 @@
-
 $(document).ready(function(){	
     $('input[name=radio-sort]').click(function(){
         var li=$(this).data('item');
@@ -39,6 +38,8 @@ $(document).ready(function(){
 		});
 		}
 	});
+
+	
 	
 	var boxes = $('.boxes');
 	boxes.height('auto');
@@ -71,7 +72,7 @@ function apply_link(file){
     var track = $('#track').val();
     var closed = window.parent.document.getElementsByClassName('mce-filemanager');
 	$('.mce-link_'+track, window.parent.document).val(path+file);
-	$('.mce-text_'+track, window.parent.document).val(file.replace(/\..+$/, ''));
+	if($('.mce-text_'+track, window.parent.document).val()=='') $('.mce-text_'+track, window.parent.document).val(file.replace(/\..+$/, ''));
     $(closed).find('.mce-close').trigger('click');
 }
 
