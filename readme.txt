@@ -4,7 +4,7 @@
 
 FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files and images with tinyMCE v.4.x
 
-DEMO: http://test.albertoperipolli.com/tinymce/
+DEMO: http://test.albertoperipolli.com/filemanager4tinymce/
 
 License: http://opensource.org/licenses/GPL-3.0
 
