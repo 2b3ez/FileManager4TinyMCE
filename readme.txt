@@ -21,7 +21,7 @@ info@albertoperipolli.com - tr1pp0
 1. Upload each folder plugins (images and file manager) to tinymce plugins folder
 (lang file is optional)
 2. open filemanager/config.php
-3. set your settings like upload_dir, type extensions,...
+3. set your settings like upload_dir, type extensions, max file size,...
 4. Save and upload config.php
 5. Edit "file" property in both plugins/image/plugin.min.js and plugins/link/plugin.min.js for proper path to dialog.php
 6. Settings of tinymce should be like :
