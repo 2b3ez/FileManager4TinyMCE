@@ -245,6 +245,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 									}else{
                                         $class_ext = 1;
 									}
+									if(!($_GET['type']==1 && !$is_img)){
                                     ?>
                                     <li class="span2 ff-item-type-<?php echo $class_ext; ?>">
                                         <div class="boxes thumbnail">
@@ -264,7 +265,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 												  </div>
 
                                             	</form>
-                                            <a href="#" title="<?php echo  lang_Select?>" onclick="<?php echo $apply; ?>('<?php echo $file; ?>')">
+                                            <a href="#" title="<?php echo  lang_Select?>" onclick="<?php echo $apply.'('.$file.')'; ?>">
  <img data-src="holder.js/140x100" alt="140x100" src="<?php echo $src; ?>" height="100">
                                                 <h4><?php echo substr($file, 0, '-' . (strlen($file_ext) + 1)); ?></h4></a>
 												  
@@ -273,6 +274,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                     </li>
                                     <?
                                     $i++;
+									}
 									}
                                 }
                             }
