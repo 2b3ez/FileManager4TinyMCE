@@ -13,7 +13,7 @@ body{ background:url(../images/fabric_plaid.png); }
 .ff-item-type-dir{ background-color:#f4f4f4; }
 h4{ font-size:12px; font-weight:normal;}
 h3{ font-size:14px;}
-.boxes{ background:white; -webkit-box-shadow:  1px 1px 4px 1px rgba(0, 0, 0, 0.4);box-shadow:  1px 1px 4px 1px rgba(0, 0, 0, 0.4); min-height:115px;}
+.boxes{ border:1px solid #CCCCCC; background:white; -webkit-box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2);box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2); min-height:115px; }
 .container-fluid{ padding:0px 10px !important;}
 .btn-group{ position:absolute; top:0px; left:0px; margin: 0px; padding:0px; width:100%; text-align:center;}
 .btn-group .btn:hover{ margin:0px;}
