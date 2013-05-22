@@ -50,11 +50,13 @@ $(document).ready(function(){
 	boxes.height(maxHeight);
 });
 
+
 function apply(file){
-    var path = $('#cur_dir').val();
-    var track = $('#track').val();
+	var path = $('#cur_dir').val();
+	var base_url = $('#base_url').val();
+	var track = $('#track').val();
     var target = window.parent.document.getElementById(track+'_ifr');
-    var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
     var ext=file.split('.').pop();
     var fill='';
     if($.inArray(ext, ext_img) > -1){
@@ -67,21 +69,33 @@ function apply(file){
     $(closed).find('.mce-close').trigger('click');
 }
 
-function apply_link(file){
-    var path = $('#cur_dir').val();
-    var track = $('#track').val();
-    var closed = window.parent.document.getElementsByClassName('mce-filemanager');
-	$('.mce-link_'+track, window.parent.document).val(path+file);
+function apply_link(file,type_file){
+	var path = $('#cur_dir').val();
+	var base_url = $('#base_url').val();
+	var track = $('#track').val();
+	$('.mce-link_'+track, window.parent.document).val(base_url+path+file);
+	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
 	if($('.mce-text_'+track, window.parent.document).val()=='') $('.mce-text_'+track, window.parent.document).val(file.replace(/\..+$/, ''));
     $(closed).find('.mce-close').trigger('click');
 }
 
-function apply_img(file){
-    var path = $('#cur_dir').val();
-    var track = $('#track').val();
+function apply_img(file,type_file){
+	var path = $('#cur_dir').val();
+	var base_url = $('#base_url').val();
+	var track = $('#track').val();
     var target = window.parent.document.getElementsByClassName('mce-img_'+track);
-    var closed = window.parent.document.getElementsByClassName('mce-filemanager');
-    $(target).val(path+file);
+	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+    $(target).val(base_url+path+file);
+    $(closed).find('.mce-close').trigger('click');
+}
+
+function apply_video(file,type_file){
+	var path = $('#cur_dir').val();
+	var base_url = $('#base_url').val();
+	var track = $('#track').val();
+    var target = window.parent.document.getElementsByClassName('mce-video'+ type_file +'_'+track);
+	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+    $(target).val(base_url+path+file);
     $(closed).find('.mce-close').trigger('click');
 }
 	

@@ -85,6 +85,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 		<input type="hidden" id="root" value="<?php echo $root; ?>" />
 		<input type="hidden" id="insert_folder_name" value="<?php echo lang_Insert_Folder_Name; ?>" />
 		<input type="hidden" id="new_folder" value="<?php echo lang_New_Folder; ?>" />
+		<input type="hidden" id="base_url" value="<?php echo $base_url?>"/>
 		
 <!----- uploader div start ------->
 <div class="uploader">            
@@ -144,14 +145,14 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 				?>
 				<ul class="breadcrumb">
 				<li><a href="<?php echo $link?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-				<?php
+				<?
 					$bc=explode('/',$subdir);
 				$tmp_path='';
 				if(!empty($bc))
 				foreach($bc as $k=>$b){ 
 					$tmp_path=$b."/";
 					if($k==count($bc)-2){
-				?> <li class="active"><?php echo $b?></li><?php
+				?> <li class="active"><?php echo $b?></li><?
 					}elseif($b!=""){ ?>
 					<li><a href="<?php echo $link.$tmp_path?>"><?php echo $b?></a> <span class="divider">/</span></li>
 				<?php }
@@ -165,7 +166,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                 <div class="row-fluid ff-container">
                     <div class="span12 pull-right">
                         <ul class="thumbnails ff-items">
-                            <?php
+                            <?
                             $class_ext = '';
                             $src = '';
                             $dir = opendir($root . $cur_dir);
@@ -175,6 +176,8 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                 $apply = 'apply_img';
                             elseif($_GET['type']==2)
                                 $apply = 'apply_link';
+                            elseif($_GET['type']>=3)
+                                $apply = 'apply_video';
 							else
                                 $apply = 'apply';
                             
@@ -184,11 +187,11 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                             foreach ($files as $file) {
                                 if (is_dir($root . $cur_dir . $file) && $file != '.' ) {
 									if(($i+$k)%6==0 && $i+$k>0){
-										?></div><div class="space10"></div><?php
+										?></div><div class="space10"></div><?
 									}
 									if(($i+$k)%6==0){
 										?>
-										<div class="row-fluid"><?php
+										<div class="row-fluid"><?
 									}
                                     $class_ext = 3;
                                     if($file=='..' && trim($subdir) != ''){
@@ -206,31 +209,32 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                     <li class="span2 ff-item-type-dir">
                                         <div class="boxes thumbnail">
                                             <?php if($file!=".."){ ?>
-                                            	<a href="dialog.php?del_folder=<?php echo $file; ?>&type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<?php echo lang_Confirm_Folder_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
+                                            	<a href="dialog.php?del_folder=<?php echo $file; ?>&type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<?php echo lang_Confirm_Folder_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
 											<?php } ?>
 											<a title="<?php echo lang_Open?>" href="dialog.php?type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $src ?>">
 <img class="directory-img"  src="ico/folder<?php if($file=='..') echo "_return"?>.png" alt="folder" />
                                             <h3><?php echo $file ?></h3></a>
                                         </div>
                                     </li>
-                                    <?php
+                                    <?
                                     $k++;
                                 }
 							}
 							foreach ($files as $file) {
                                 if ($file != '.' && $file != '..' && !is_dir($root . $cur_dir . $file)) {
 									if(($i+$k)%6==0 && $i+$k>0){
-										?></div><div class="space10"></div><?php
+										?></div><div class="space10"></div><?
 									}
 									if(($i+$k)%6==0){
 										?>
-										<div class="row-fluid"><?php
+										<div class="row-fluid"><?
 									}
 									$is_img=false;
+									$is_video=false;
                                     $file_ext = substr(strrchr($file,'.'),1);
 									if(in_array($file_ext, $ext)){
 									if(in_array($file_ext, $ext_img)){
-										 $src = $wwwroot . $cur_dir . $file;
+										 $src = $base_url . $cur_dir . $file;
 										 $is_img=true;
 									}elseif(file_exists('ico/'.strtoupper($file_ext).".png")){
 										$src = 'ico/'.strtoupper($file_ext).".png";
@@ -240,6 +244,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 
                                     if (in_array($file_ext, $ext_video)) {
                                         $class_ext = 4;
+										$is_video=true;
                                     }elseif (in_array($file_ext, $ext_img)) {
                                         $class_ext = 2;
                                     }elseif (in_array($file_ext, $ext_music)) {
@@ -249,7 +254,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 									}else{
                                         $class_ext = 1;
 									}
-									if(!($_GET['type']==1 && !$is_img)){
+									if(!($_GET['type']==1 && !$is_img) && !($_GET['type']>=3 && !$is_video)){
                                     ?>
                                     <li class="span2 ff-item-type-<?php echo $class_ext; ?>">
                                         <div class="boxes thumbnail">
@@ -265,24 +270,24 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                             <?php }else{ ?>
                                             	<a class="btn preview disabled"><i class=" icon-eye-open"></i></a>
                                             <?php } ?>
-                                            	<a href="dialog.php?del_file=<?php echo $file; ?>&type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<?php echo lang_Confirm_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
+                                            	<a href="dialog.php?del_file=<?php echo $file; ?>&type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<?php echo lang_Confirm_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
 												  </div>
 
                                             	</form>
-                                            <a href="#" title="<?php echo  lang_Select?>" onclick="<?php echo $apply."('".$file."')"; ?>">
+                                            <a href="#" title="<?php echo  lang_Select?>" onclick="<?php echo $apply."('".$file."',".$_GET['type'].")"; ?>">
  <img data-src="holder.js/140x100" alt="140x100" src="<?php echo $src; ?>" height="100">
                                                 <h4><?php echo substr($file, 0, '-' . (strlen($file_ext) + 1)); ?></h4></a>
 												  
                                                     
                                         </div>
                                     </li>
-                                    <?php
+                                    <?
                                     $i++;
 									}
 									}
                                 }
                             }
-?></div><?php
+?></div><?
                             closedir($dir);
                             ?>
                         </ul>
