@@ -269,7 +269,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 												  </div>
 
                                             	</form>
-                                            <a href="#" title="<?php echo  lang_Select?>" onclick="<?php echo $apply.'("'.$file.'")'; ?>">
+                                            <a href="#" title="<?php echo  lang_Select?>" onclick="<?php echo $apply."('".$file."')"; ?>">
  <img data-src="holder.js/140x100" alt="140x100" src="<?php echo $src; ?>" height="100">
                                                 <h4><?php echo substr($file, 0, '-' . (strlen($file_ext) + 1)); ?></h4></a>
 												  
