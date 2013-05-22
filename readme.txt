@@ -22,7 +22,7 @@ mybeeez@gmail.com - b3ez
 2. open filemanager/config.php
 3. set your settings like base_url, upload_dir, type extensions, max file size,...
 4. Save and upload config.php
-5. Edit "file" property in plugins/image/plugin.min.js, plugins/link/plugin.min.js and plugins/link/plugin.min.js  for proper path to dialog.php
+5. Edit all "file:" property in plugins/image/plugin.min.js, plugins/link/plugin.min.js and plugins/media/plugin.min.js  for proper path to dialog.php
 6. Settings of tinymce should be like :
 
  selector: "textarea",
