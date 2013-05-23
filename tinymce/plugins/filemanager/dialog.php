@@ -145,14 +145,14 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 				?>
 				<ul class="breadcrumb">
 				<li><a href="<?php echo $link?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-				<?
+				<?php
 					$bc=explode('/',$subdir);
 				$tmp_path='';
 				if(!empty($bc))
 				foreach($bc as $k=>$b){ 
 					$tmp_path=$b."/";
 					if($k==count($bc)-2){
-				?> <li class="active"><?php echo $b?></li><?
+				?> <li class="active"><?php echo $b?></li><?php
 					}elseif($b!=""){ ?>
 					<li><a href="<?php echo $link.$tmp_path?>"><?php echo $b?></a> <span class="divider">/</span></li>
 				<?php }
@@ -166,7 +166,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                 <div class="row-fluid ff-container">
                     <div class="span12 pull-right">
                         <ul class="thumbnails ff-items">
-                            <?
+                            <?php
                             $class_ext = '';
                             $src = '';
                             $dir = opendir($root . $cur_dir);
@@ -187,11 +187,11 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                             foreach ($files as $file) {
                                 if (is_dir($root . $cur_dir . $file) && $file != '.' ) {
 									if(($i+$k)%6==0 && $i+$k>0){
-										?></div><div class="space10"></div><?
+										?></div><div class="space10"></div><?php
 									}
 									if(($i+$k)%6==0){
 										?>
-										<div class="row-fluid"><?
+										<div class="row-fluid"><?php
 									}
                                     $class_ext = 3;
                                     if($file=='..' && trim($subdir) != ''){
@@ -211,23 +211,23 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                             <?php if($file!=".."){ ?>
                                             	<a href="dialog.php?del_folder=<?php echo $file; ?>&type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button top-right" onclick="return confirm('<?php echo lang_Confirm_Folder_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
 											<?php } ?>
-											<a title="<?php echo lang_Open?>" href="dialog.php?type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $src ?>">
+											<a title="<?php echo lang_Open?>" href="dialog.php?type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $src ?>">
 <img class="directory-img"  src="ico/folder<?php if($file=='..') echo "_return"?>.png" alt="folder" />
                                             <h3><?php echo $file ?></h3></a>
                                         </div>
                                     </li>
-                                    <?
+                                    <?php
                                     $k++;
                                 }
 							}
 							foreach ($files as $file) {
                                 if ($file != '.' && $file != '..' && !is_dir($root . $cur_dir . $file)) {
 									if(($i+$k)%6==0 && $i+$k>0){
-										?></div><div class="space10"></div><?
+										?></div><div class="space10"></div><?php
 									}
 									if(($i+$k)%6==0){
 										?>
-										<div class="row-fluid"><?
+										<div class="row-fluid"><?php
 									}
 									$is_img=false;
 									$is_video=false;
@@ -270,7 +270,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                             <?php }else{ ?>
                                             	<a class="btn preview disabled"><i class=" icon-eye-open"></i></a>
                                             <?php } ?>
-                                            	<a href="dialog.php?del_file=<?php echo $file; ?>&type=<?echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<?php echo lang_Confirm_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
+                                            	<a href="dialog.php?del_file=<?php echo $file; ?>&type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo  $subdir ?>" class="btn erase-button btn-error" onclick="return confirm('<?php echo lang_Confirm_del; ?>');" title="<?php echo lang_Erase?>"><i class="icon-trash"></i></a>
 												  </div>
 
                                             	</form>
@@ -281,13 +281,13 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                                                     
                                         </div>
                                     </li>
-                                    <?
+                                    <?php
                                     $i++;
 									}
 									}
                                 }
                             }
-?></div><?
+?></div><?php
                             closedir($dir);
                             ?>
                         </ul>
