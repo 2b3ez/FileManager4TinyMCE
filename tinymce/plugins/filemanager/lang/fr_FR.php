@@ -1,6 +1,7 @@
 <?php
 define('lang_Select','Sélectionner');
 define('lang_Erase','Effacer');
+define('lang_Open','Ouvre');
 define('lang_Confirm_del','Êtes-vous sûr de vouloir effacer ce fichier ?');
 define('lang_All','Tous');
 define('lang_Files','Fichiers');
