@@ -6,10 +6,10 @@ FileManager for TinyMCE is a tool make with jQuery library that offers a nice an
 
 Version 3.0 NEWS:
 
-- With this plugin you can also set automatic resizing of uploaded images.
-- Moreover you can set the permits to delete files, folder and create folder.
-- This version support advanced tab on image plugin
-- For preview img in files list the plugin NOW create a thumbnail image with low resolution!!!
+- You can set (if you want) automatic resizing of uploaded images.
+- You can set the permits to delete files, folder and create folder.
+- This version support advanced tab on tinymce image plugin
+- In files list NOW the plugin create a thumbnail image with low resolution for preview!!!
 
 
 
