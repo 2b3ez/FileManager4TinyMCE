@@ -1,8 +1,17 @@
 *********************************************************
-! FileManager for TinyMCE
+! FileManager for TinyMCE Version 3.0
 *********************************************************
 
 FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files, images and videos with tinyMCE v.4.x
+
+Version 3.0 NEWS:
+
+- With this plugin you can also set automatic resizing of uploaded images.
+- Moreover you can set the permits to delete files, folder and create folder.
+- This version support advanced tab on image plugin
+- For preview img in files list the plugin NOW create a thumbnail image with low resolution!!!
+
+
 
 DEMO: http://test.albertoperipolli.com/filemanager4tinymce/
 
@@ -20,10 +29,11 @@ mybeeez@gmail.com - b3ez
 
 1. Upload each folder plugins (images, link, media and filemanager) to tinymce plugins folder (lang file is optional)
 2. open filemanager/config.php
-3. set your settings like base_url, upload_dir, type extensions, max file size,...
-4. Save and upload config.php
-5. Edit all "file:" property in plugins/image/plugin.min.js, plugins/link/plugin.min.js and plugins/media/plugin.min.js  for proper path to dialog.php
-6. Settings of tinymce should be like :
+3. set your settings like base_url, upload_dir, type extensions, max file size,... other specifications. 
+4. Create the 2 folder for thumbs and file and give write permits.
+5. Save and upload config.php
+6. Edit all "file:" property in plugins/image/plugin.min.js, plugins/link/plugin.min.js and plugins/media/plugin.min.js  for proper path to dialog.php
+7. Settings of tinymce should be like :
 
  selector: "textarea",
     theme: "modern",
@@ -39,7 +49,7 @@ mybeeez@gmail.com - b3ez
    toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect forecolor backcolor | link unlink anchor | image media | print preview code"
  }); 
 
-P.S.: if you have a site with url-rewriting is required to edit both plugin.min.js files and change the relative url after file: to a absolute url from root  "/path/to/file" otherwise
+P.S.: if you have a site with url-rewriting is required to edit both plugin.min.js files and change the relative url after file: to a absolute url from root  "/path/to/file" otherwise. Remember to assign permits to upload dir and thumbs dir. Moreover set the thumbs folder out of base upload folder; the best is to put it in the same level.
 
 Localization: ENG,FRA,ITA,GER[Oliver Beta],POR-BRA[paulomanrique]
 
