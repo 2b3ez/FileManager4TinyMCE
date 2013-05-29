@@ -37,7 +37,7 @@ $(document).ready(function(){
 			  url: "createfolder.php",
 			  data: {path: folder_path, path_thumb: folder_path_thumb}
 			}).done(function( msg ) {
-			//window.location.reload();
+			window.location.reload();
 		});
 		}
 	});
