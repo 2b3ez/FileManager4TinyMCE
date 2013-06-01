@@ -11,7 +11,7 @@ if (!empty($_FILES)) {
      
     $tempFile = $_FILES['file']['tmp_name'];   
       
-    echo $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds; 
+    $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds; 
     $targetPathThumb = dirname( __FILE__ ) . $ds. $storeFolderThumb . $ds; 
      
     $targetFile =  $targetPath. $_FILES['file']['name']; 
