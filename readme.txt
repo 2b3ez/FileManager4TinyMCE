@@ -11,6 +11,9 @@ Version 4.0 NEWS:
 - Now thumbs folder is inside the file manager script
 - Fix resizing bug, create folder possible bug
 - AUTOMATIC Realignment of THUMBS tree and images if you upload file from other client FTP or other method
+- Add loading animation while the image lightbox loading
+- Add possibility to config size width or/and height image limits
+- Add possibility to config automatic resizing and set only width or height size
 
 Version 3.0 NEWS:
 
