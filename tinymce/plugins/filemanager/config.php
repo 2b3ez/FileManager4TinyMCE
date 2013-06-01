@@ -18,7 +18,7 @@ $image_max_height=0;
 
 //Automatic resizing //
 //If you set true $image_resizing the script convert all images uploaded in image_width x image_height resolution
-//If you set width or height to 0 the script calcolate automatically the size
+//If you set width or height to 0 the script calcolate automatically the other size
 $image_resizing=false;
 $image_width=600;
 $image_height=0;
