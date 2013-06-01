@@ -25,7 +25,8 @@ $(document).ready(function(){
 	});
 	$('.preview').click(function(){
 		$('#full-img').attr('src',$(this).data('url'));
-		show_animation();
+		if(!$(this).hasClass('disabled'))
+			show_animation();
 		return true;
 	});
 
