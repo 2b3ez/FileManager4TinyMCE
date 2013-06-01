@@ -1,8 +1,16 @@
 *********************************************************
-! FileManager for TinyMCE Version 3.0
+! FileManager for TinyMCE Version 4.0
 *********************************************************
 
-FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files, images and videos with tinyMCE v.4.x
+FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files, images and videos with tinyMCE v.4.x.
+The script automatically create a thumbs of images for preview list.
+You can config if you want an automatic resizing of uploaded images.
+
+Version 4.0 NEWS:
+- Further simplify the installation steps
+- Now thumbs folder is inside the file manager script
+- Fix resizing bug, create folder possible bug
+- AUTOMATIC Realignment of THUMBS tree and images if you upload file from other client FTP or other method
 
 Version 3.0 NEWS:
 
@@ -28,16 +36,14 @@ mybeeez@gmail.com - b3ez
 *********************************************************
 
 1. Upload each folder plugins (images, link, media and filemanager) to tinymce plugins folder (lang file is optional)
-2. open filemanager/config.php
-3. set your configurations like base_url, upload_dir, thumbs_dir, type extensions allowed , max file size, permits… and other specifications. save file. 
-4. create 2 folder for thumbs and file and give write permits.
-5. your work is finish!!! settings of tinymce should be like : (remember to add filemanager in plugins list)
+2. open filemanager/config.php and set your configurations like base_url, upload_dir, type extensions allowed , max file size, permits… and other specifications. save file. 
+3. create folder where upload files and give write permits.
+4. your work is finish!!! settings of tinymce should be like : (remember to add filemanager in plugins list)
 
  selector: "textarea",
     theme: "modern",
     width: 680,
     height: 300,
-    language : 'fr_FR',
     plugins: [
          "advlist autolink link image lists charmap print preview hr anchor pagebreak",
          "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
@@ -47,7 +53,7 @@ mybeeez@gmail.com - b3ez
    toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect forecolor backcolor | link unlink anchor | image media | print preview code"
  }); 
 
-P.S.: Remember to set the thumbs folder out of base upload folder; the best is to put it in the same level.
+P.S.: If you not view the preview images remember to set the thumbs folder in plugin/filemanager/thumbs with write permits.
 
 Localization: ENG,FRA,ITA,GER[Oliver Beta],POR-BRA[paulomanrique]
 

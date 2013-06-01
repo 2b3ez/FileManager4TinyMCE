@@ -1,5 +1,6 @@
 <?php
 include 'config.php';
+include('utils.php');
 
 function deleteDir($dirPath) {
     if (! is_dir($dirPath)) {
@@ -26,18 +27,17 @@ else
     $subdir = '';
 
 $cur_dir = $upload_dir . $subdir;
-$cur_dir_thumb = $upload_dir_thumb . $subdir;
 $cur_path = $current_path . $subdir;
-$cur_path_thumb = $current_path_thumb . $subdir;
+
 
 if (isset($_GET['del_file'])) {
     @unlink($root. $cur_dir . $_GET['del_file']);
-    @unlink($root. $cur_dir_thumb . $_GET['del_file']);
+    @unlink( "thumbs/".$subdir.$_GET['del_file']);
 }
 
 if (isset($_GET['del_folder'])) {
     @ deleteDir($root. $cur_dir . $_GET['del_folder']);
-    @ deleteDir($root. $cur_dir_thumb . $_GET['del_folder']);
+    @ deleteDir($subdir. $_GET['del_folder']);
 }
 
 if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
@@ -86,7 +86,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
     <body>
 		<input type="hidden" id="track" value="<?php echo $_GET['editor']; ?>" />
 		<input type="hidden" id="cur_dir" value="<?php echo $cur_dir; ?>" />
-		<input type="hidden" id="cur_dir_thumb" value="<?php echo $cur_dir_thumb; ?>" />
+		<input type="hidden" id="cur_dir_thumb" value="<?php echo "thumbs/".$subdir; ?>" />
 		<input type="hidden" id="root" value="<?php echo $root; ?>" />
 		<input type="hidden" id="insert_folder_name" value="<?php echo lang_Insert_Folder_Name; ?>" />
 		<input type="hidden" id="new_folder" value="<?php echo lang_New_Folder; ?>" />
@@ -96,7 +96,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 <div class="uploader">            
 	<form action="upload.php" id="myAwesomeDropzone" class="dropzone">
 		<input type="hidden" name="path" value="<?php echo $cur_path?>"/>
-		<input type="hidden" name="path_thumb" value="<?php echo $cur_path_thumb?>"/>
+		<input type="hidden" name="path_thumb" value="<?php echo "thumbs/".$subdir?>"/>
 		<div class="fallback">
 	    	<input name="file" type="file" multiple />
 	  	</div>
@@ -165,6 +165,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 				<?php }
 				}
 				?>
+				<li class="pull-right"><a id="refresh" href="dialog.php?type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $subdir ?>"><i class="icon-refresh"></i></a></li>
 				</ul>
 			</div>
 <!----- breadcrumb div end ------->
@@ -190,6 +191,8 @@ if(!isset($_GET['type'])) $_GET['type']=0;
                             
                             foreach ($files as $file) {
                                 if (is_dir($root . $cur_dir . $file) && $file != '.' ) {
+									//add in thumbs folder if not exist 
+									if (!file_exists("thumbs/".$subdir.$file)) create_folder(false,"thumbs/".$subdir.$file);
 									if(($i+$k)%6==0 && $i+$k>0 && $end==false){ $end =true;
 										?></div><div class="space10"></div><?php
 									}else{ $end =false; }
@@ -204,11 +207,12 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 										$src=implode('/',$src);
                                     }
                                     elseif ($file!='..') {
-                                        $src = $subdir . $file;
+                                        $src = $subdir . $file."/";
                                     }
                                     else{
                                         continue;
                                     }
+									
                                     ?>
                                     <li class="span2 ff-item-type-dir">
                                         <div class="boxes thumbnail">
@@ -232,7 +236,10 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 									if(in_array($file_ext, $ext)){
 									if(in_array($file_ext, $ext_img)){
 										 $src = $base_url . $cur_dir . $file;
-										 $src_thumb = $base_url . $cur_dir_thumb . $file;
+										 $src_thumb = "thumbs/".$subdir. $file;
+										 //add in thumbs folder if not exist 
+										$thumb_path=dirname( __FILE__ ). DIRECTORY_SEPARATOR."thumbs". DIRECTORY_SEPARATOR.$subdir.$file;
+										 if(!file_exists($thumb_path)) create_img_gd(dirname( __FILE__ ). DIRECTORY_SEPARATOR.$current_path.$subdir.$file, $thumb_path, 156, 78);
 										 $is_img=true;
 									}elseif(file_exists('ico/'.strtoupper($file_ext).".png")){
 										$src = $src_thumb ='ico/'.strtoupper($file_ext).".png";
@@ -254,6 +261,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 									}
 
 									if(!($_GET['type']==1 && !$is_img) && !($_GET['type']>=3 && !$is_video)){
+
 
 									if(($i+$k)%6==0 && $i+$k>0 && $end==false){ $end=true;
 										?></div><div class="space10"></div><?php

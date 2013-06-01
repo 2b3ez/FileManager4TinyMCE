@@ -51,9 +51,8 @@ function create_img_gd($imgfile, $imgthumb, $newwidth, $newheight="") {
     if ($srcImage){
         $x=0;
         $y=0;
-		echo $altezza=(int)($srcWidth * $newheight / $newwidth);
+		$altezza=(int)($srcWidth * $newheight / $newwidth);
 		if( $altezza <= $srcHeight){
-echo "  |  tolgo altezza";
 			$fotoWidth=$srcWidth;
 			$fotoHeight=$altezza;
 			$y=(int)(($srcHeight - $altezza)/2);
@@ -61,7 +60,7 @@ echo "  |  tolgo altezza";
 			$larghezza =(int)($srcHeight * $newwidth / $newheight);
 			$fotoWidth=$larghezza;
 			$fotoHeight=$srcHeight;
-			$x=(int)(($srcHeight - $larghezza)/2);
+			$x=(int)(($srcWidth - $larghezza)/2);
 
 		}
       $ratioWidth = $srcWidth / $newwidth;
@@ -70,7 +69,6 @@ echo "  |  tolgo altezza";
       $destImage = imagecreatetruecolor($destWidth, $destHeight);
       imagealphablending($destImage, true);
       imagealphablending($srcImage, false);
-	echo "	$srcWidth > $srcHeight	$destImage, $srcImage, 0, 0, $x, $y, $destWidth, $destHeight, $fotoWidth, $fotoHeight ||";
       imagecopyresized($destImage, $srcImage, 0, 0, $x, $y, $destWidth, $destHeight, $fotoWidth, $fotoHeight);
 
       switch($type) {
@@ -103,6 +101,15 @@ function makeSize($size) {
      $u++;
    }
    return (number_format($size, 1, ',', '') . " " . $units[$u]);
+}
+
+function create_folder($path=false,$path_thumbs=false){
+	$oldumask = umask(0); 
+	if ($path && !file_exists($path))
+		mkdir($path, 0777); // or even 01777 so you get the sticky bit set 
+	if($path_thumbs && !file_exists($path_thumbs)) 
+		mkdir($path_thumbs, 0777); // or even 01777 so you get the sticky bit set 
+	umask($oldumask);
 }
 
 ?>
