@@ -157,7 +157,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 				$tmp_path='';
 				if(!empty($bc))
 				foreach($bc as $k=>$b){ 
-					$tmp_path=$b."/";
+					$tmp_path.=$b."/";
 					if($k==count($bc)-2){
 				?> <li class="active"><?php echo $b?></li><?php
 					}elseif($b!=""){ ?>

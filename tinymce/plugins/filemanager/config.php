@@ -13,7 +13,7 @@ $MaxSizeUpload=100; //Mb
 //**********************
 //set max width pixel or the max height pixel for all images
 //if you don't have limit set both to 0
-$image_max_width=600;
+$image_max_width=0;
 $image_max_height=0;
 
 //Automatic resizing //
