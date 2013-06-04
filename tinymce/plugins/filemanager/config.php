@@ -12,6 +12,8 @@ $MaxSizeUpload=100; //Mb
 //Image config
 //**********************
 //set max width pixel or the max height pixel for all images
+//If you set dimension limit, automatically the images that exceed this limit are convert to limit, instead
+//if the images are lower the dimension is maintained
 //if you don't have limit set both to 0
 $image_max_width=0;
 $image_max_height=0;
