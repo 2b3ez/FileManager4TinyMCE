@@ -72,6 +72,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 				dictResponseError: "SERVER ERROR",
 				paramName: "file", // The name that will be used to transfer the file
 				maxFilesize: <?php echo $MaxSizeUpload; ?>, // MB
+				url: "upload.php",
 				accept: function(file, done) {
 				var extension=file.name.split('.').pop();
 				  if ($.inArray(extension, allowed_ext) > -1) {
@@ -94,7 +95,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 		
 <!----- uploader div start ------->
 <div class="uploader">            
-	<form action="upload.php" id="myAwesomeDropzone" class="dropzone">
+	<form id="myAwesomeDropzone" class="dropzone">
 		<input type="hidden" name="path" value="<?php echo $cur_path?>"/>
 		<input type="hidden" name="path_thumb" value="<?php echo "thumbs/".$subdir?>"/>
 		<div class="fallback">

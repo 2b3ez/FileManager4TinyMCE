@@ -1,5 +1,5 @@
 <?php 
-$root = rtrim($_SERVER['DOCUMENT_ROOT'],'/');
+$root = rtrim($_SERVER['DOCUMENT_ROOT'],'/'); //don't change this variable
 
 
 $base_url="http://localhost"; //url base of site if you want only relative url leave empty
