@@ -40,7 +40,7 @@ if (isset($_GET['del_folder'])) {
     @ deleteDir($subdir. $_GET['del_folder']);
 }
 
-if (isset($_GET['lang']) && $_GET['lang'] != 'undefined') {
+if (isset($_GET['lang']) && $_GET['lang'] != 'undefined' && is_readable('lang/' . $_GET['lang'] . '.php')) {
     require_once 'lang/' . $_GET['lang'] . '.php';
 } else {
     require_once 'lang/en_EN.php';
