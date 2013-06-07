@@ -93,6 +93,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 		<input type="hidden" id="new_folder" value="<?php echo lang_New_Folder; ?>" />
 		<input type="hidden" id="base_url" value="<?php echo $base_url?>"/>
 		
+<?php if($upload_files){ ?>
 <!----- uploader div start ------->
 <div class="uploader">            
 	<form id="myAwesomeDropzone" class="dropzone">
@@ -107,11 +108,15 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 </div>
 <!----- uploader div start ------->
 
+<?php } ?>		
           <div class="container-fluid">
           
           
 <!----- header div start ------->
-			<div class="filters"><button class="btn btn-primary upload-btn" style="margin-left:5px;"><i class="icon-upload icon-white"></i> <?php echo  lang_Upload_file?></button> 
+			<div class="filters">
+<?php if($upload_files){ ?>
+			<button class="btn btn-primary upload-btn" style="margin-left:5px;"><i class="icon-upload icon-white"></i> <?php echo  lang_Upload_file?></button> 
+<?php } ?>		
 <?php if($create_folder){ ?>
 			<button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <?php echo  lang_New_Folder?></button> 
 <?php } ?>

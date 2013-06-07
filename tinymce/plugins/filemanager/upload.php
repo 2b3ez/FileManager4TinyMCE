@@ -7,7 +7,7 @@ $ds          = DIRECTORY_SEPARATOR;
 $storeFolder = $_POST['path'];
 $storeFolderThumb = $_POST['path_thumb'];  
  
-if (!empty($_FILES)) {
+if (!empty($_FILES) && $upload_files) {
      
     $tempFile = $_FILES['file']['tmp_name'];   
       

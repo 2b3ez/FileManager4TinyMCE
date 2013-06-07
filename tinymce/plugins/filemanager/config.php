@@ -1,10 +1,22 @@
 <?php 
-$root = rtrim($_SERVER['DOCUMENT_ROOT'],'/'); //don't change this variable
+$root = rtrim($_SERVER['DOCUMENT_ROOT'],'/'); // don't touch this configuration
 
+//**********************
+//Path configuration
+//**********************
+// In this configuration the folder tree is
+// root
+//   |- tinymce
+//   |    |- source <- upload folder
+//   |    |- js
+//   |    |   |- tinymce
+//   |    |   |    |- plugins
+//   |    |   |    |-   |- filemanager
+//   |    |   |    |-   |-      |- thumbs <- folder of thumbs [must have the write permission]
 
 $base_url="http://localhost"; //url base of site if you want only relative url leave empty
 $upload_dir = '/tinymce/source/'; // path from base_url to upload base dir
-$current_path = '../../../../source/'; // relative path from filemanager folder to dir for upload file
+$current_path = '../../../../source/'; // relative path from filemanager folder to upload files folder
 
 $MaxSizeUpload=100; //Mb
 
@@ -31,6 +43,7 @@ $image_height=0;
 $delete_file=true;
 $create_folder=true;
 $delete_folder=true;
+$upload_files=true;
 
 
 //**********************
