@@ -58,7 +58,7 @@ mybeeez@gmail.com - b3ez
 
 P.S.: If you not view the preview images remember to set the thumbs folder in plugin/filemanager/thumbs with write permits.
 
-Localization: ENG,FRA,ITA,GER[Oliver Beta],POR-BRA[paulomanrique],POL[Michell Hoduń],CZE
+Localization: ENG,FRA,ITA,GER[Oliver Beta],POR-BRA[paulomanrique],POL[Michell Hoduń],CZE[jlusticky]
 
 *********************************************************
 ! Credits
