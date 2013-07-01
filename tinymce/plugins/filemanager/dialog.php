@@ -120,7 +120,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 <?php if($create_folder){ ?>
 			<button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <?php echo  lang_New_Folder?></button> 
 <?php } ?>
-<?php if($_GET['type']!=1){ ?>
+<?php if($_GET['type']!=1 && $_GET['type']<3){ ?>
 <div class="pull-right"><?echo lang_Filter?>: &nbsp;&nbsp;
 			<input id="select-type-all" name="radio-sort" type="radio" data-item="ff-item-type-all" class="hide" />
                         <label id="ff-item-type-all" for="select-type-all" class="btn btn-info ff-label-type-all"><?php echo lang_All; ?></label>
