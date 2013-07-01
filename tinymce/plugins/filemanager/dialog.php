@@ -96,7 +96,7 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 <?php if($upload_files){ ?>
 <!----- uploader div start ------->
 <div class="uploader">            
-	<form id="myAwesomeDropzone" class="dropzone">
+	<form action="upload.php" id="myAwesomeDropzone" class="dropzone">
 		<input type="hidden" name="path" value="<?php echo $cur_path?>"/>
 		<input type="hidden" name="path_thumb" value="<?php echo "thumbs/".$subdir?>"/>
 		<div class="fallback">
