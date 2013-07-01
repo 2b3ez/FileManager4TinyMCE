@@ -69,7 +69,7 @@ function create_img_gd($imgfile, $imgthumb, $newwidth, $newheight="") {
       $destImage = imagecreatetruecolor($destWidth, $destHeight);
       imagealphablending($destImage, true);
       imagealphablending($srcImage, false);
-      imagecopyresized($destImage, $srcImage, 0, 0, $x, $y, $destWidth, $destHeight, $fotoWidth, $fotoHeight);
+      imagecopyresampled($destImage, $srcImage, 0, 0, $x, $y, $destWidth, $destHeight, $fotoWidth, $fotoHeight);
 
       switch($type) {
         case IMG_GIF:
