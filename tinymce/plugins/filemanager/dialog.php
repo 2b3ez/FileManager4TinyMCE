@@ -37,7 +37,7 @@ if (isset($_GET['del_file'])) {
 
 if (isset($_GET['del_folder'])) {
     @ deleteDir($root. $cur_dir . $_GET['del_folder']);
-    @ deleteDir($subdir. $_GET['del_folder']);
+    @ deleteDir("thumbs/".$subdir. $_GET['del_folder']);
 }
 
 if (isset($_GET['lang']) && $_GET['lang'] != 'undefined' && is_readable('lang/' . $_GET['lang'] . '.php')) {
