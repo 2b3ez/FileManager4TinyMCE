@@ -6,6 +6,11 @@ FileManager for TinyMCE is a tool make with jQuery library that offers a nice an
 The script automatically create a thumbs of images for preview list.
 You can config if you want an automatic resizing of uploaded images.
 
+Last fix:
+- white background in png thumbs
+- fallback upload for old browser
+- fix folder delete bug	
+
 Version 4.0 NEWS:
 - Further simplify the installation steps
 - Now thumbs folder is inside the file manager script
