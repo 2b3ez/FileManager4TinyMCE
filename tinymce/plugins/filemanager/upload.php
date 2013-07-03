@@ -49,7 +49,6 @@ if (!empty($_FILES) && $upload_files) {
 		$resize=false;
 		if($image_max_width!=0 && $srcWidth >$image_max_width){
 			$resize=true;
-			echo "resizione";
 			$srcHeight=$image_max_width*$srcHeight/$srcWidth;
 			$srcWidth=$image_max_width;
 		}
