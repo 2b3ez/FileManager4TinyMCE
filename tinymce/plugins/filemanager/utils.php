@@ -32,7 +32,7 @@ function create_img_gd($imgfile, $imgthumb, $newwidth, $newheight="") {
           break;
       case IMG_JPG:
           if (!function_exists("imagecreatefromjpeg")) return $imgfile;
-          $srcImage = imagecreatefromjpeg($imgfile);
+          $srcImage = imagecreatefromjpeg("$imgfile");
           break;
       case IMG_PNG:
           if(!function_exists("imagecreatefrompng")) return $imgfile;
@@ -67,9 +67,11 @@ function create_img_gd($imgfile, $imgthumb, $newwidth, $newheight="") {
       $destWidth = $newwidth;
       $destHeight = $newheight;
       $destImage = imagecreatetruecolor($destWidth, $destHeight);
+      $tmp=imagecolorallocate($destImage, 255, 255, 255);
+      imagefill($destImage, 0, 0, $tmp);
       imagealphablending($destImage, true);
       imagealphablending($srcImage, false);
-      imagecopyresampled($destImage, $srcImage, 0, 0, $x, $y, $destWidth, $destHeight, $fotoWidth, $fotoHeight);
+      imagecopyresized($destImage, $srcImage, 0, 0, $x, $y, $destWidth, $destHeight, $fotoWidth, $fotoHeight);
 
       switch($type) {
         case IMG_GIF:

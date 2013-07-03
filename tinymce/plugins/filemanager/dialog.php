@@ -1,6 +1,13 @@
 <?php
+if(isset($_POST['submit'])){
+
+include('upload.php');
+
+}else{
+
 include 'config.php';
 include('utils.php');
+
 
 function deleteDir($dirPath) {
     if (! is_dir($dirPath)) {
@@ -95,13 +102,18 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 		
 <?php if($upload_files){ ?>
 <!----- uploader div start ------->
-<div class="uploader">            
-	<form action="upload.php" id="myAwesomeDropzone" class="dropzone">
+<div class="uploader">    
+	<form action="dialog.php" method="post" enctype="multipart/form-data" id="myAwesomeDropzone" class="dropzone">
 		<input type="hidden" name="path" value="<?php echo $cur_path?>"/>
 		<input type="hidden" name="path_thumb" value="<?php echo "thumbs/".$subdir?>"/>
 		<div class="fallback">
-	    	<input name="file" type="file" multiple />
-	  	</div>
+			<input name="file" type="file" />
+			<input type="hidden" name="fldr" value="<?=$_GET['fldr']?>"/>
+			<input type="hidden" name="type" value="<?=$_GET['type']?>"/>
+			<input type="hidden" name="editor" value="<?=$_GET['editor']?>"/>
+			<input type="hidden" name="lang" value="<?=$_GET['lang']?>"/>
+			<input type="submit" name="submit" value="OK" />
+		</div>
 	</form>
 	<center><button class="btn btn-large btn-primary close-uploader"><i class="icon-backward icon-white"></i> <?php echo lang_Return_Files_List?></button></center>
 	<div class="space10"></div><div class="space10"></div>
@@ -332,3 +344,4 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 	<!----- loading div end ------->  
 </body>
 </html>
+<? } ?>

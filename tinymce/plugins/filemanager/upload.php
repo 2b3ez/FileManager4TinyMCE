@@ -65,7 +65,9 @@ if (!empty($_FILES) && $upload_files) {
 	}else{
 		move_uploaded_file($tempFile,$targetFile);
 	}
-	
-     
 }
+if(isset($_POST['submit'])){
+	header("location: dialog.php?type=".$_POST['type']."&lang=".$_POST['lang']."&editor=".$_POST['editor']."&fldr=".$_POST['fldr']);
+}
+
 ?>      
