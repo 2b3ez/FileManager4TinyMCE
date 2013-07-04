@@ -344,4 +344,4 @@ if(!isset($_GET['type'])) $_GET['type']=0;
 	<!----- loading div end ------->  
 </body>
 </html>
-<? } ?>
+<?php } ?>
