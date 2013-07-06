@@ -30,6 +30,7 @@ h3{ font-size:14px;}
 	z-index:9999;
 	background:#eeeeee;
 	padding-top:20px;
+	border-bottom:1px solid #cccccc;
 	display:none;
 }
 .download-form{

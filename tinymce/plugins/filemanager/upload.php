@@ -66,7 +66,7 @@ if (!empty($_FILES) && $upload_files) {
 	}
 }
 if(isset($_POST['submit'])){
-	header("location: dialog.php?type=".$_POST['type']."&lang=".$_POST['lang']."&editor=".$_POST['editor']."&fldr=".$_POST['fldr']);
+	header("location: dialog.php?type=".$_POST['type']."&lang=".$_POST['lang']."&field_id=".$_POST['field_id']."&editor=".$_POST['editor']."&fldr=".$_POST['fldr']);
 }
 
 ?>      

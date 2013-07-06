@@ -75,41 +75,65 @@ function apply(file){
     $(closed).find('.mce-close').trigger('click');
 }
 
-function apply_link(file,type_file){
-	var path = $('#cur_dir').val();
-	var base_url = $('#base_url').val();
-	var track = $('#track').val();
+function apply_link(file,type_file,external){
+    var path = $('#cur_dir').val();
+    var base_url = $('#base_url').val();
+    var track = $('#track').val();
+    
+    if (external=="") {
 	$('.mce-link_'+track, window.parent.document).val(base_url+path+file);
 	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
 	if($('.mce-text_'+track, window.parent.document).val()=='') $('.mce-text_'+track, window.parent.document).val(file.replace(/\..+$/, ''));
-    $(closed).find('.mce-close').trigger('click');
+	$(closed).find('.mce-close').trigger('click');
+    }else{
+	var target = window.parent.document.getElementById(external);
+	$(target).val(base_url+path+file);
+	parent.$.fancybox.close();
+    }
 }
 
-function apply_img(file,type_file){
-	var path = $('#cur_dir').val();
-	var base_url = $('#base_url').val();
-	var track = $('#track').val();
-    var target = window.parent.document.getElementsByClassName('mce-img_'+track);
-	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
-    $(target).val(base_url+path+file);
-    $(closed).find('.mce-close').trigger('click');
+function apply_none(file,type_file,external){
+    return false;
 }
 
-function apply_video(file,type_file){
-	var path = $('#cur_dir').val();
-	var base_url = $('#base_url').val();
-	var track = $('#track').val();
-    var target = window.parent.document.getElementsByClassName('mce-video'+ type_file +'_'+track);
+function apply_img(file,type_file,external){
+    var path = $('#cur_dir').val();
+    var base_url = $('#base_url').val();
+    var track = $('#track').val();
+    if (external=="") {
+	var target = window.parent.document.getElementsByClassName('mce-img_'+track);
 	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
-    $(target).val(base_url+path+file);
-    $(closed).find('.mce-close').trigger('click');
+	$(target).val(base_url+path+file);
+	$(closed).find('.mce-close').trigger('click');
+    }else{
+	var target = window.parent.document.getElementById(external);
+	$(target).val(base_url+path+file);
+	parent.$.fancybox.close();
+    }
+}
+
+function apply_video(file,type_file,external){
+    var path = $('#cur_dir').val();
+    var base_url = $('#base_url').val();
+    var track = $('#track').val();
+    
+    if (external=="") {
+	var target = window.parent.document.getElementsByClassName('mce-video'+ type_file +'_'+track);
+	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+	$(target).val(base_url+path+file);
+	$(closed).find('.mce-close').trigger('click');
+    }else{
+	var target = window.parent.document.getElementById(external);
+	$(target).val(base_url+path+file);
+	parent.$.fancybox.close();
+    }
 }
 
 
 function show_animation()
 {
-	$('#loading_container').css('display', 'block');
-	$('#loading').css('opacity', '.7');
+    $('#loading_container').css('display', 'block');
+    $('#loading').css('opacity', '.7');
 }
 
 function hide_animation()
