@@ -85,6 +85,7 @@ and button have this code to open filemanager:
 - GER[Oliver Beta]
 - HUN[Bende Roland]
 - ITA
+- NL [johan12]
 - POL[Michell Hoduń]
 - POR-BRA[paulomanrique]
 - POR-PT[Sérgio Lima]
