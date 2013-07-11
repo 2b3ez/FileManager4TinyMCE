@@ -1,23 +1,36 @@
 *********************************************************
-! FileManager for TinyMCE Version 5.0.0
+! FileManager for TinyMCE Version 6.0.0
 *********************************************************
 
 FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files, images and videos with tinyMCE v.4.x.
 Now you can use also as normal filemanager, you can manage and select files.
 The script automatically create a thumbs of images for preview list.
 You can config if you want an automatic resizing of uploaded images.
+You can set a subfolder as root and change the configuration for every user, page or filemanager call.
 
-Version 5.0 NEWS:
-- Stand-alone use of filemanager, you can open and select files also dividing them according to the type (video, images and all files)
+
+NEWS
+
+Version 6.0.0
+- New amazing flat interface
+- Possibility to set subfolder as root
+- Ajax files and folders cancellation
+- Improve speed and code structure
+- If image is smaller than thumbnail the file manager show the image centered  
+- TinyMCE link_list now is supported and plugin.min.js files aren't minimized [thanks to Pål Schroeder]
+- Fix bug in file selection on subfolder
+- Other bug fix
+- Mobile version with swipe event to show options
+
 
 DEMO: http://test.albertoperipolli.com/filemanager4tinymce/
 
 License: http://opensource.org/licenses/GPL-3.0
 
 Creators : 
-
 info@albertoperipolli.com - tr1pp0
 
+Creator until version 2:
 mybeeez@gmail.com - b3ez
 
 *********************************************************
@@ -33,6 +46,7 @@ mybeeez@gmail.com - b3ez
     theme: "modern",
     width: 680,
     height: 300,
+    subfolder:"",
     plugins: [
          "advlist autolink link image lists charmap print preview hr anchor pagebreak",
          "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
@@ -43,6 +57,7 @@ mybeeez@gmail.com - b3ez
  }); 
 
 P.S.: If you not view the preview images remember to set the thumbs folder in plugin/filemanager/thumbs with write permits.
+If you update from previous version delete the contents of thumbs folder.
 
 
 USING AS STAND-ALONE FILEMANAGER
@@ -52,7 +67,7 @@ You can use normal popup, bootstrap modal, fancybox iframe , lightbox iframe to 
 Only open filemanager(type=0 and not set field_id): 
 path to filemanager../filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=
 
-Select Image: (type=2 and set id of input text in field_id variable): 
+Select Image: (type=1 and set id of input text in field_id variable): 
 path to filemanager../filemanager/dialog.php?type=1&editor=mce_0&lang=eng&fldr=&field_id=fieldID
 
 Select Video: (type=3 and set id of input text in field_id variable): 
@@ -74,29 +89,81 @@ and button have this code to open filemanager:
 
 <a href="js/tinymce/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=" class="btn iframe-btn" type="button">Open Filemanager</a>
 
+Remember to include fancybox file in head section:
+
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+If you not use fancybox, you must change the function to close the windows after file selection in filemanager/js/include.js:
+
+function close_window() {
+    parent.$.fancybox.close();
+}
+
+
+
+SET SUBFOLDER AS ROOT
+
+You can set subfolder as root an change this parameter in tinymce init or in external-link  through the subfolder variables.
+So you can have a root folder for every user or use.
+Remember to create subfolder in your source folder before :)
+
+In tinymce editor you must set the variable
+    subfolder:"folder",
+while in external link you can add in get parameters
+    &subfolder=folder
+
+Folder Example:
+
+root
+- folder1
+  - subfolder1
+  - subfolder2
+- folder2
+  -subfolder3
+
+User1 subfolder=""
+View:
+folder1
+  - subfolder1
+  - subfolder2
+folder2
+  -subfolder3
+
+User 2 subfolder="folder1"
+View:
+subfolder1
+subfolder2
+
+
 
 *********************************************************
 ! Localization
 *********************************************************
 
-- CZE[jlusticky]
+- BGR [Stanislav Panev]
+- BRA [paulomanrique]
+- CZE [jlusticky]
 - ENG
 - FRA
-- GER[Oliver Beta]
-- HUN[Bende Roland]
+- GER [Oliver Beta]
+- HUN [Bende Roland]
 - ITA
-- NL [johan12]
-- POL[Michell Hoduń]
-- POR-BRA[paulomanrique]
-- POR-PT[Sérgio Lima]
-- RUS[vasromand]
-
+- NLD [johan12]
+- POL [Michell Hoduń]
+- POR [Sérgio Lima]
+- RUS [vasromand]
 
 *********************************************************
 ! Old version news
 *********************************************************
 
-Version 4.0 NEWS:
+
+Version 5:
+- Stand-alone use of filemanager, you can open and select files also dividing them according to the type (video, images and all files)
+
+Version 4:
 - Further simplify the installation steps
 - Now thumbs folder is inside the file manager script
 - Fix resizing bug, create folder possible bug
@@ -108,14 +175,13 @@ Version 4.0 NEWS:
 - fallback upload for old browser
 - fix folder delete bug	
 
-Version 3.0 NEWS:
+Version 3:
 
 - With this plugin you can also set automatic resizing of uploaded images.
 - Moreover you can set the permits to delete files, folder and create folder.
 - This version support advanced tab on image plugin
 - For preview img in files list the plugin NOW create a thumbnail image with low resolution!!!
 - Simplify the installation steps
-
 
 *********************************************************
 ! Credits
@@ -126,6 +192,8 @@ Bootstrap => http://twitter.github.io/bootstrap/
 Bootstrap Lightbox => http://jbutz.github.io/bootstrap-lightbox/
 
 Dropzonejs => http://www.dropzonejs.com/
+
+Fancybox => http://fancybox.net/
 
 *********************************************************
 

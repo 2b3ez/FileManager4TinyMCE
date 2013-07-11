@@ -1,16 +1,17 @@
+
 $(document).ready(function(){	
 	
 
     $('input[name=radio-sort]').click(function(){
         var li=$(this).data('item');
-		$('.filters label').removeClass("btn-info");
-		$('#'+li).addClass("btn-info");
+		$('.filters label').removeClass("btn-inverse");
+		$('#'+li).addClass("btn-inverse");
         if(li=='ff-item-type-all'){ 
-			$('.thumbnails li').fadeTo(500,1); 
+			$('.grid li').show(300); 
 		}else{
             if($(this).is(':checked')){
-                $('.thumbnails li').not('.'+li).fadeTo(500,0.1);
-                $('.thumbnails li.'+li).fadeTo(500,1);
+                $('.grid li').not('.'+li).hide(300);
+                $('.grid li.'+li).show(300);
             }
         }
     });
@@ -44,10 +45,20 @@ $(document).ready(function(){
 		});
 		}
 	});
-
+	//Enable swiping...
+	$(".box").swipe( {
+		//Generic swipe handler for all directions
+		swipe:function(event, direction, distance, duration, fingerCount) {
+			$(this).parent().toggleClass('cs-hover');	
+		},
+		//Default is 75px, set to 0 for demo so any distance triggers swipe
+	   threshold:30
+	});
+	if (!Modernizr.touch) {
+	    $('#help').hide();
+	}
 	
-	
-	var boxes = $('.boxes');
+	var boxes = $('.d');
 	boxes.height('auto');
 	var maxHeight = Math.max.apply(
 	  Math, boxes.map(function() {
@@ -75,6 +86,8 @@ function apply(file){
     $(closed).find('.mce-close').trigger('click');
 }
 
+
+
 function apply_link(file,type_file,external){
     var path = $('#cur_dir').val();
     var base_url = $('#base_url').val();
@@ -88,7 +101,7 @@ function apply_link(file,type_file,external){
     }else{
 	var target = window.parent.document.getElementById(external);
 	$(target).val(base_url+path+file);
-	parent.$.fancybox.close();
+	close_window();
     }
 }
 
@@ -108,7 +121,7 @@ function apply_img(file,type_file,external){
     }else{
 	var target = window.parent.document.getElementById(external);
 	$(target).val(base_url+path+file);
-	parent.$.fancybox.close();
+	close_window();
     }
 }
 
@@ -125,10 +138,32 @@ function apply_video(file,type_file,external){
     }else{
 	var target = window.parent.document.getElementById(external);
 	$(target).val(base_url+path+file);
-	parent.$.fancybox.close();
+	close_window();
     }
 }
 
+function close_window() {
+    parent.$.fancybox.close();
+}
+
+function delete_file(file1,file2) {
+    $.ajax({
+	    type: "POST",
+	    url: "delete_file.php",
+	    data: {path: file1, path_thumb: file2}
+	}).done(function( msg ) {
+    });
+}
+
+
+function delete_folder(folder1,folder2) {
+    $.ajax({
+	    type: "POST",
+	    url: "delete_folder.php",
+	    data: {path: folder1, path_thumb: folder2}
+	}).done(function( msg ) {
+    });
+}
 
 function show_animation()
 {

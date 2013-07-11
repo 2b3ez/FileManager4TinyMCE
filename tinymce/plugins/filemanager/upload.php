@@ -21,7 +21,7 @@ if (!empty($_FILES) && $upload_files) {
 	else $is_img=false;
 
 	if($is_img){
-		create_img_gd($tempFile, $targetFileThumb, 156, 78);
+		create_img_gd($tempFile, $targetFileThumb, 122, 91);
 
 		$imginfo =getimagesize($tempFile);
 		$srcWidth = $imginfo[0];
@@ -66,7 +66,7 @@ if (!empty($_FILES) && $upload_files) {
 	}
 }
 if(isset($_POST['submit'])){
-	header("location: dialog.php?type=".$_POST['type']."&lang=".$_POST['lang']."&field_id=".$_POST['field_id']."&editor=".$_POST['editor']."&fldr=".$_POST['fldr']);
+	header("location: dialog.php?type=".$_POST['type']."&lang=".$_POST['lang']."&subfolder=".$_POST['subfolder']."&field_id=".$_POST['field_id']."&editor=".$_POST['editor']."&fldr=".$_POST['fldr']);
 }
 
 ?>      

@@ -1,26 +1,64 @@
-body{ background:url(../images/fabric_plaid.png); }
-.ff-container .affix input{display: none;}
-.ff-container .affix label{margin-bottom:10px;}
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0;}
+body{ background:url(../images/fabric_plaid.jpg); }
+
+.btn{
+-webkit-border-radius: 0px;
+    
+    border-radius: 0px;
+}
 .container-fluid{padding-right:0 !important;margin-top:10px !important;}
-.ff-items li{text-align:center; position:relative;}
-.ff-items li a{color:black;}
-.ff-items li img{height:60px; max-width:120px; width:auto;}
-.ff-items li h4,.ff-items li h3{border-top:1px solid #EEE;margin-top:5px !important;padding-top:5px !important; line-height:16px; margin-bottom:0px;}
-.ff-items li p{margin-bottom:0 !important;height:22px !important;display:block;}
-.ff-items li.noml{margin-left:0 !important;}
+.img-precontainer{
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	background: white;
+	border:none;
+}
+.img-container{
+	height: 91px;
+	width: 122px;
+	padding: 0px;
+	border:none;
+	overflow: hidden;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	margin: auto;
+}
+ul.breadcrumb{
+	margin-bottom:0px;
+	-webkit-border-radius: 0px;
+    
+    border-radius: 0px;
+}
+.img-container * {
+    vertical-align: middle;
+}
+.img-container.directory{
+	background-color: #dddddd;
+}
+/*\*//*/
+.img-container {
+    display: block;
+}
+.img-container span {
+    display: inline-block;
+    height: 100%;
+    width: 1px;
+}
+/**/
+
 .qq-uploader .span9{margin-left:14px !important;width:690px !important;}
 .space10{ clear:both; height:10px; }
-.ff-item-type-dir{ background-color:#f4f4f4; }
-h4{ font-size:12px; font-weight:normal;}
-h3{ font-size:14px;}
-.boxes{ border:1px solid #CCCCCC; word-wrap: break-word; background:white; -webkit-box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2);box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2); min-height:115px; }
+
+h4{ font-size:11px; font-weight:normal; margin: 0px; text-align: center; padding: 0px; margin-top:6px; line-height: 18px; }
+h3{ font-size:14px; }
+.boxes{ border:1px solid #CCCCCC; word-wrap: break-word; background:white;
+-webkit-box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2);box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2); min-height:115px;
+text-align: center;}
 .container-fluid{ padding:0px 10px !important;}
-.btn-group{ position:absolute; top:0px; left:0px; margin: 0px; padding:0px; width:100%; text-align:center;}
-.btn-group .btn:hover{ margin:0px;}
-.btn-group a:last-child:hover{padding-left:11px;}
-.preview{ padding-left:19px; padding-right:18px;}
-.preview:hover{ padding-left:18px; padding-right:18px;}
-.top-right{position: absolute; top:0px; right: 0px;}
+.preview{ padding-left:18px; padding-right:18px;}
 .filters{ margin-top:0px; padding-bottom:10px; border-bottom:1px solid #eeeeee;} 
 .uploader{
 	position:absolute;
@@ -36,6 +74,113 @@ h3{ font-size:14px;}
 .download-form{
 	margin-bottom:25px;
 }
-.directory-img{
-	margin-top:25px;
+.grid li i{
+	margin-left:2px;
+	margin-right: 2px;
+}
+.box,.boxx{
+	text-align: center;
+	word-wrap: break-word;
+	background: white;
+	vertical-align: top;
+	text-align: left;
+	position: relative;
+	border: none;
+	border-bottom: 1px solid #cccccc;
+	box-shadow: none;
+	min-height: 30px;
+	z-index: 100;
+	padding: 4px;
+}
+.box .btn{
+	width: 100%;
+	background: none;
+	box-shadow: none;
+	border:none;
+	z-index: 200;
+}
+
+/* GRID */
+.grid {
+	padding: 10px;
+	margin: 0 auto;
+	list-style: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+.grid li {
+	display: inline-block;
+	width: 128px;
+	margin: 5px;
+	padding: 2px;
+	vertical-align: top;
+}
+
+.grid figure {
+	margin: 0;
+	position: relative;
+	display: block;
+	width: 122px;
+	margin: auto;
+}
+
+.grid figure .box {
+	max-width: 100%;
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
+.grid figcaption {
+	padding: 2px;
+	padding-left:10px;
+	padding-top: 8px;
+	color: white;
+	height: 32px;
+	width: 118px;
+	margin-left:2px;
+	margin-right: 2px;
+	position: absolute;
+	top: auto;
+	bottom: 0;
+	-webkit-box-shadow: inset 0px 0px 8px 0px rgba(41, 41, 41, 0.5);
+        box-shadow: inset 0px 0px 8px 0px rgba(41, 41, 41, 0.5);
+}
+
+.grid figcaption h3 {
+	margin: 0;
+	padding: 0;
+	color: #fff;
+}
+
+.grid h4{
+	font-family: Helvetica;
+	text-align: center;
+	color: black;
+	padding: 0px;
+	margin-bottom: 4px;
+	margin-top: 4px;
+}
+
+
+/* Individual Caption Styles */
+
+
+/* Caption Style 2 */
+.cs-style-2 figure .box{
+	z-index: 10;
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+
+.no-touch .cs-style-2 figure:hover .box,
+.cs-style-2 figure.cs-hover .box {
+	-webkit-box-shadow:  0px 0px 4px 0px rgba(1, 1, 1, 0.5);
+        box-shadow:  0px 0px 4px 0px rgba(1, 1, 1, 0.5);
+	-webkit-transform: translateY(-30px);
+	-moz-transform: translateY(-30px);
+	-ms-transform: translateY(-30px);
+	transform: translateY(-30px);
 }
