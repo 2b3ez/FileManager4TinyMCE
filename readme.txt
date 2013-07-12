@@ -1,5 +1,5 @@
 *********************************************************
-! FileManager for TinyMCE Version 6.0.0
+! FileManager for TinyMCE Version 6.0.1
 *********************************************************
 
 FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files, images and videos with tinyMCE v.4.x.
@@ -10,6 +10,9 @@ You can set a subfolder as root and change the configuration for every user, pag
 
 
 NEWS
+
+Version 6.0.1
+- Improve Responsive design
 
 Version 6.0.0
 - New amazing flat interface
