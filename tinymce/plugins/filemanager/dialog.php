@@ -48,7 +48,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="robots" content="noindex,nofollow">
-        <title>Administration</title>
+        <title>FileManager</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-lightbox.min.css" rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
