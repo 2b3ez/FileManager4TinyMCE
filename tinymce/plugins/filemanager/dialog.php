@@ -125,33 +125,36 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
           
 <!----- header div start ------->
 			<div class="filters">
-<?php if($upload_files){ ?>
-			<button class="btn btn-inverse upload-btn" style="margin-left:5px;"><i class="icon-upload icon-white"></i> <?php echo  lang_Upload_file?></button> 
-<?php } ?>		
-<?php if($create_folder){ ?>
-			<button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <?php echo  lang_New_Folder?></button> 
-<?php } ?>
-<?php if($_GET['type']==2 || $_GET['type']==0){ ?>
-<div class="pull-right"><?echo lang_Filter?>: &nbsp;&nbsp;
-			<input id="select-type-all" name="radio-sort" type="radio" data-item="ff-item-type-all" class="hide" />
-                        <label id="ff-item-type-all" for="select-type-all" class="btn btn-inverse ff-label-type-all"><?php echo lang_All; ?></label>
-&nbsp;
-                        <input id="select-type-1" name="radio-sort" type="radio" data-item="ff-item-type-1" checked="checked"  class="hide"  />
-                        <label id="ff-item-type-1" for="select-type-1" class="btn ff-label-type-1"><?php echo lang_Files; ?></label>
-&nbsp;
-                        <input id="select-type-2" name="radio-sort" type="radio" data-item="ff-item-type-2" class="hide"  />
-                        <label id="ff-item-type-2" for="select-type-2" class="btn ff-label-type-2"><?php echo lang_Images; ?></label>
-&nbsp;
-                        <input id="select-type-3" name="radio-sort" type="radio" data-item="ff-item-type-3" class="hide"  />
-                        <label id="ff-item-type-3" for="select-type-3" class="btn ff-label-type-3"><?php echo lang_Archives; ?></label>
-&nbsp;
-                        <input id="select-type-4" name="radio-sort" type="radio" data-item="ff-item-type-4" class="hide"  />
-                        <label id="ff-item-type-4" for="select-type-4" class="btn ff-label-type-4"><?php echo lang_Videos; ?></label>
-&nbsp;
-                        <input id="select-type-5" name="radio-sort" type="radio" data-item="ff-item-type-5" class="hide"  />
-                        <label id="ff-item-type-5" for="select-type-5" class="btn ff-label-type-5"><?php echo lang_Music; ?></label>
-</div>
-<?php } ?>
+			    <div class="row-fluid">
+				<div class="span4">
+				    <?php if($upload_files){ ?>
+							    <button class="btn btn-inverse upload-btn" style="margin-left:5px;"><i class="icon-upload icon-white"></i> <?php echo  lang_Upload_file?></button> 
+				    <?php } ?>
+				    <?php if($create_folder){ ?>
+							    <button class="btn new-folder" style="margin-left:5px;"><i class="icon-folder-open"></i> <?php echo  lang_New_Folder?></button> 
+				    <?php } ?>
+				</div>
+				<div class="span8 pull-right">
+				    <?php if($_GET['type']==2 || $_GET['type']==0){ ?>
+				    <div class="pull-right"><?php echo lang_Filter; ?> : 
+							    <input id="select-type-all" name="radio-sort" type="radio" data-item="ff-item-type-all" class="hide" />
+							    <label id="ff-item-type-all" for="select-type-all" class="btn btn-inverse ff-label-type-all"><?php echo lang_All; ?></label>
+							    <input id="select-type-1" name="radio-sort" type="radio" data-item="ff-item-type-1" checked="checked"  class="hide"  />
+							    <label id="ff-item-type-1" for="select-type-1" class="btn ff-label-type-1"><?php echo lang_Files; ?></label>
+							    <input id="select-type-2" name="radio-sort" type="radio" data-item="ff-item-type-2" class="hide"  />
+							    <label id="ff-item-type-2" for="select-type-2" class="btn ff-label-type-2"><?php echo lang_Images; ?></label>
+							    <input id="select-type-3" name="radio-sort" type="radio" data-item="ff-item-type-3" class="hide"  />
+							    <label id="ff-item-type-3" for="select-type-3" class="btn ff-label-type-3"><?php echo lang_Archives; ?></label>
+							    <input id="select-type-4" name="radio-sort" type="radio" data-item="ff-item-type-4" class="hide"  />
+							    <label id="ff-item-type-4" for="select-type-4" class="btn ff-label-type-4"><?php echo lang_Videos; ?></label>
+							    <input id="select-type-5" name="radio-sort" type="radio" data-item="ff-item-type-5" class="hide"  />
+							    <label id="ff-item-type-5" for="select-type-5" class="btn ff-label-type-5"><?php echo lang_Music; ?></label>
+				    </div>
+				    <?php } ?>
+				</div>
+			    </div>
+
+
 </div>
 
 <!----- header div end ------->

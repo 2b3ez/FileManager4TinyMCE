@@ -59,7 +59,9 @@ h3{ font-size:14px; }
 text-align: center;}
 .container-fluid{ padding:0px 10px !important;}
 .preview{ padding-left:18px; padding-right:18px;}
-.filters{ margin-top:0px; padding-bottom:10px; border-bottom:1px solid #eeeeee;} 
+.filters{ margin-top:0px; padding-bottom:10px; border-bottom:1px solid #eeeeee; }
+.filters .pull-right{text-align: right;}
+.filters .btn {margin-bottom: 4px;}
 .uploader{
 	position:absolute;
 	top:100px;

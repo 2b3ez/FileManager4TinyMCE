@@ -9,7 +9,7 @@ define('lang_Images','Images');
 define('lang_Archives','Archives');
 define('lang_Error_Upload','The uploaded file exceeds the max size allowed.');
 define('lang_Error_extension','File extension is not allowed.');
-define('lang_Upload_file','Upload a file');
+define('lang_Upload_file','Upload');
 define('lang_Filter','Filter');
 define('lang_Videos','Videos');
 define('lang_Music','Music');
