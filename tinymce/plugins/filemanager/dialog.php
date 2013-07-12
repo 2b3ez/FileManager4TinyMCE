@@ -193,6 +193,10 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 
     <div class="row-fluid ff-container">
 	<div class="span12">
+	    <?php if(@opendir($root . $cur_dir)===FALSE){ ?>
+	    <br/>
+	    <div class="alert alert-error">There is an error! The root folder not exist. </div> 
+	    <?php }else{ ?>
 	    <h4 id="help">Swipe the name of file/folder to show options</h4>
 		    
 	    <!--ul class="thumbnails ff-items"-->
@@ -200,6 +204,8 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 		<?php
 		$class_ext = '';
 		$src = '';
+		
+		 
 		$dir = opendir($root . $cur_dir);
 		$i = 0;
 					    $k=0;
@@ -239,7 +245,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 					</div>
 					</div>
 					</a>
-			<? }else{ ?>
+			<?php }else{ ?>
 					
 					<div class="img-precontainer">
 					<div class="img-container directory"><span></span>
@@ -258,7 +264,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 					    </a>
 				    </figcaption>
 				</figure>
-			<? } ?>
+			<?php } ?>
 			</li>
 			<?php
 			$k++;
@@ -346,6 +352,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 		closedir($dir);
 		?>
 	    </ul>
+	    <?php } ?>
 	</div>
     </div>
 </div>

@@ -15,7 +15,7 @@ Version 6.0.0
 - New amazing flat interface
 - Possibility to set subfolder as root
 - Ajax files and folders cancellation
-- Improve speed and code structure
+- Improve speed, code structure and image size optimization
 - If image is smaller than thumbnail the file manager show the image centered  
 - TinyMCE link_list now is supported and plugin.min.js files aren't minimized [thanks to Pål Schroeder]
 - Fix bug in file selection on subfolder
@@ -188,12 +188,10 @@ Version 3:
 *********************************************************
 
 Bootstrap => http://twitter.github.io/bootstrap/
-
 Bootstrap Lightbox => http://jbutz.github.io/bootstrap-lightbox/
-
 Dropzonejs => http://www.dropzonejs.com/
-
 Fancybox => http://fancybox.net/
+TouchSwipe => http://labs.rampinteractive.co.uk/touchSwipe/demos/
 
 *********************************************************
 
