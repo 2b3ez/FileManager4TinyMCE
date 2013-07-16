@@ -48,7 +48,10 @@ ul.breadcrumb{
     width: 1px;
 }
 /**/
-
+iframe{	
+    overflow: auto;
+    -webkit-overflow-scrolling:touch;
+}
 .qq-uploader .span9{margin-left:14px !important;width:690px !important;}
 .space10{ clear:both; height:10px; }
 
@@ -58,7 +61,7 @@ h3{ font-size:14px; }
 -webkit-box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2);box-shadow:  1px 1px 2px 0px rgba(0, 0, 0, 0.2); min-height:115px;
 text-align: center;}
 .container-fluid{ padding:0px 10px !important;}
-.preview{ padding-left:18px; padding-right:18px;}
+.preview{ padding-left:16px; padding-right:16px;}
 .filters{ margin-top:0px; padding-bottom:10px; border-bottom:1px solid #eeeeee; }
 .filters .pull-right{text-align: right;}
 .filters .btn {margin-bottom: 4px;}
@@ -134,11 +137,12 @@ text-align: center;}
 }
 
 .grid figcaption {
+	text-align: center;
 	padding: 2px;
-	padding-left:10px;
 	padding-top: 8px;
 	color: white;
 	height: 30px;
+	overflow: hidden;
 	width: 118px;
 	margin-left:2px;
 	margin-right: 2px;
@@ -147,6 +151,11 @@ text-align: center;}
 	bottom: 0;
 	-webkit-box-shadow: inset 0px 0px 8px 0px rgba(41, 41, 41, 0.5);
         box-shadow: inset 0px 0px 8px 0px rgba(41, 41, 41, 0.5);
+}
+
+.grid figcaption a{
+	margin: 0px;
+	padding: 4px;
 }
 
 .grid figcaption h3 {

@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+$_SESSION["verify"] = "FileManager4TinyMCE";
+
 if(isset($_POST['submit'])){
 
 include('upload.php');
@@ -104,6 +108,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 		<input type="hidden" name="path" value="<?php echo $cur_path?>"/>
 		<input type="hidden" name="path_thumb" value="<?php echo $thumbs_path.$subdir?>"/>
 		<div class="fallback">
+			<?php echo  lang_Upload_file?>:<br/>
 			<input name="file" type="file" />
 			<input type="hidden" name="fldr" value="<?php echo $_GET['fldr']?>"/>
 			<input type="hidden" name="type" value="<?php echo $_GET['type']?>"/>
@@ -174,7 +179,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 	$link.="&fldr="; 
 	?>
 	<ul class="breadcrumb">
-	<li><a href="<?php echo $link?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+	<li class="pull-left"><a href="<?php echo $link?>"><i class="icon-home"></i></a></li><li><span class="divider">/</span></li>
 	<?php
 		$bc=explode('/',$subdir);
 	$tmp_path='';
@@ -184,7 +189,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 		if($k==count($bc)-2){
 	?> <li class="active"><?php echo $b?></li><?php
 		}elseif($b!=""){ ?>
-		<li><a href="<?php echo $link.$tmp_path?>"><?php echo $b?></a> <span class="divider">/</span></li>
+		<li><a href="<?php echo $link.$tmp_path?>"><?php echo $b?></a></li><li><span class="divider">/</span></li>
 	<?php }
 	}
 	?>
@@ -248,6 +253,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 					</div>
 					</div>
 					</a>
+				    
 			<?php }else{ ?>
 					
 					<div class="img-precontainer">
@@ -266,8 +272,8 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 					    <i class="icon-trash <?php if(!$delete_folder) echo 'icon-white'; ?>"></i>
 					    </a>
 				    </figcaption>
-				</figure>
 			<?php } ?>
+			    </figure>
 			</li>
 			<?php
 			$k++;

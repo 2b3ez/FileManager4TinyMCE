@@ -1,11 +1,17 @@
-<?php 
+<?php
+
+session_start();
+if($_SESSION["verify"] != "FileManager4TinyMCE") die('forbiden');
+
 include('config.php');
 include('utils.php');
+
 
 $ds          = DIRECTORY_SEPARATOR; 
  
 $storeFolder = $_POST['path'];
 $storeFolderThumb = $_POST['path_thumb'];  
+if(strpos($storeFolder,$upload_dir)===FALSE || strpos($storeFolderThumb,$upload_dir)===FALSE) die('wrong path');
  
 if (!empty($_FILES) && $upload_files) {
      

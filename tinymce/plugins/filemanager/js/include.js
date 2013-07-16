@@ -57,6 +57,15 @@ $(document).ready(function(){
 	if (!Modernizr.touch) {
 	    $('#help').hide();
 	}
+	if(!Modernizr.csstransitions) { // Test if CSS transitions are supported
+            
+                $('figure').bind('mouseover',function(){
+                    $(this).find('.box').animate({top: "-30px"} ,{queue:false,duration:300});
+                });
+		$('figure').mouseout(function(){
+		    $(this).find('.box').animate({top: "0px"} ,{queue:false,duration:300});
+		});
+        }
 	
 	var boxes = $('.d');
 	boxes.height('auto');
