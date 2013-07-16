@@ -33,7 +33,7 @@ Version 6.0.0
 
 DEMO: http://test.albertoperipolli.com/filemanager4tinymce/
 
-License: http://opensource.org/licenses/GPL-3.0
+License: MIT license
 
 Creators : 
 info@albertoperipolli.com - tr1pp0
