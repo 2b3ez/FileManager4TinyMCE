@@ -10,8 +10,9 @@ include('utils.php');
 $ds          = DIRECTORY_SEPARATOR; 
  
 $storeFolder = $_POST['path'];
-$storeFolderThumb = $_POST['path_thumb'];  
-if(strpos($storeFolder,$upload_dir)===FALSE || strpos($storeFolderThumb,$upload_dir)===FALSE) die('wrong path');
+$storeFolderThumb = $_POST['path_thumb'];
+echo $upload_dir."    sdds  ".$storeFolderThumb;
+
  
 if (!empty($_FILES) && $upload_files) {
      
