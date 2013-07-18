@@ -1,7 +1,6 @@
 
-$(document).ready(function(){	
-	
-
+$(document).ready(function(){	    
+    
     $('input[name=radio-sort]').click(function(){
         var li=$(this).data('item');
 		$('.filters label').removeClass("btn-inverse");
@@ -78,11 +77,12 @@ $(document).ready(function(){
 
 
 function apply(file){
-	var path = $('#cur_dir').val();
-	var base_url = $('#base_url').val();
-	var track = $('#track').val();
-    var target = window.parent.document.getElementById(track+'_ifr');
-	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+    if ($('#popup').val()==1) var window_parent=window.opener; else var window_parent=window.parent;
+    var path = $('#cur_dir').val();
+    var base_url = $('#base_url').val();
+    var track = $('#track').val();
+    var target = window_parent.document.getElementById(track+'_ifr');
+    var closed = window_parent.document.getElementsByClassName('mce-filemanager');
     var ext=file.split('.').pop();
     var fill='';
     if($.inArray(ext, ext_img) > -1){
@@ -98,17 +98,18 @@ function apply(file){
 
 
 function apply_link(file,type_file,external){
+    if ($('#popup').val()==1) var window_parent=window.opener; else var window_parent=window.parent;
     var path = $('#cur_dir').val();
     var base_url = $('#base_url').val();
     var track = $('#track').val();
     
     if (external=="") {
-	$('.mce-link_'+track, window.parent.document).val(base_url+path+file);
-	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
-	if($('.mce-text_'+track, window.parent.document).val()=='') $('.mce-text_'+track, window.parent.document).val(file.replace(/\..+$/, ''));
+	$('.mce-link_'+track, window_parent.document).val(base_url+path+file);
+	var closed = window_parent.document.getElementsByClassName('mce-filemanager');
+	if($('.mce-text_'+track, window_parent.document).val()=='') $('.mce-text_'+track, window_parent.document).val(file.replace(/\..+$/, ''));
 	$(closed).find('.mce-close').trigger('click');
     }else{
-	var target = window.parent.document.getElementById(external);
+	var target = window_parent.document.getElementById(external);
 	$(target).val(base_url+path+file);
 	close_window();
     }
@@ -119,40 +120,44 @@ function apply_none(file,type_file,external){
 }
 
 function apply_img(file,type_file,external){
+    if ($('#popup').val()==1) var window_parent=window.opener; else var window_parent=window.parent;
     var path = $('#cur_dir').val();
     var base_url = $('#base_url').val();
     var track = $('#track').val();
     if (external=="") {
-	var target = window.parent.document.getElementsByClassName('mce-img_'+track);
-	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+	var target = window_parent.document.getElementsByClassName('mce-img_'+track);
+	var closed = window_parent.document.getElementsByClassName('mce-filemanager');
 	$(target).val(base_url+path+file);
 	$(closed).find('.mce-close').trigger('click');
     }else{
-	var target = window.parent.document.getElementById(external);
+	var target = window_parent.document.getElementById(external);
 	$(target).val(base_url+path+file);
 	close_window();
     }
 }
 
 function apply_video(file,type_file,external){
+    if ($('#popup').val()==1) var window_parent=window.opener; else var window_parent=window.parent;
     var path = $('#cur_dir').val();
     var base_url = $('#base_url').val();
     var track = $('#track').val();
     
     if (external=="") {
-	var target = window.parent.document.getElementsByClassName('mce-video'+ type_file +'_'+track);
-	var closed = window.parent.document.getElementsByClassName('mce-filemanager');
+	var target = window_parent.document.getElementsByClassName('mce-video'+ type_file +'_'+track);
+	var closed = window_parent.document.getElementsByClassName('mce-filemanager');
 	$(target).val(base_url+path+file);
 	$(closed).find('.mce-close').trigger('click');
     }else{
-	var target = window.parent.document.getElementById(external);
+	var target = window_parent.document.getElementById(external);
 	$(target).val(base_url+path+file);
 	close_window();
     }
 }
 
 function close_window() {
-    parent.$.fancybox.close();
+    if ($('#popup').val()==1) window.close();
+    else
+	parent.$.fancybox.close();
 }
 
 function delete_file(file1,file2) {

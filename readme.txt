@@ -1,5 +1,5 @@
 *********************************************************
-! FileManager for TinyMCE Version 6.1.0
+! FileManager for TinyMCE Version 6.2.0
 *********************************************************
 
 FileManager for TinyMCE is a tool make with jQuery library that offers a nice and elegant way to upload and insert files, images and videos with tinyMCE v.4.x.
@@ -10,6 +10,12 @@ You can set a subfolder as root and change the configuration for every user, pag
 
 
 NEWS
+
+Version 6.2.0
+- Improve quality of images resizing using PHP Image Magician
+
+Version 6.1.1
+- Automatic compatibility with popup by pass the popup GET variable
 
 Version 6.1.0
 - Compatibility with Internet Explorer and old browser
@@ -26,25 +32,19 @@ Version 6.0.0
 - Improve speed, code structure and image size optimization
 - If image is smaller than thumbnail the file manager show the image centered  
 - TinyMCE link_list now is supported and plugin.min.js files aren't minimized [thanks to Pål Schroeder]
-- Fix bug in file selection on subfolder
-- Other bug fix
+- Fix bug in file selection on subfolder and Other bug fix
 - Mobile version with swipe event to show options
-
 
 DEMO: http://test.albertoperipolli.com/filemanager4tinymce/
 
-License: MIT license
+Released under MIT license
 
-Creators : 
-info@albertoperipolli.com - tr1pp0
-
-Creator until version 2:
-mybeeez@gmail.com - b3ez
+Creator : info@albertoperipolli.com - tr1pp0
+Creator until version 1: mybeeez@gmail.com - b3ez
 
 *********************************************************
 ! Installation
 *********************************************************
-
 1. Upload each folder plugins (images, link, media and filemanager) to tinymce plugins folder (lang file is optional)
 2. open filemanager/config.php and set your configurations like base_url, upload_dir, type extensions allowed , max file size, permits… and other specifications. save file. 
 3. create folder where upload files and give write permits.
@@ -84,6 +84,8 @@ path to filemanager../filemanager/dialog.php?type=3&editor=mce_0&lang=eng&fldr=&
 Select File: (type=2 and set id of input text in field_id variable): 
 path to filemanager../filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=fieldID
 
+If you want use popup add in the address &popup=1
+
 In demo page i use fancybox with this configuration:
 
     $('.iframe-btn').fancybox({	
@@ -101,7 +103,6 @@ Remember to include fancybox file in head section:
 
 <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-
 
 If you not use fancybox, you must change the function to close the windows after file selection in filemanager/js/include.js:
 
@@ -145,11 +146,9 @@ subfolder1
 subfolder2
 
 
-
 *********************************************************
 ! Localization
 *********************************************************
-
 - BGR [Stanislav Panev]
 - BRA [paulomanrique]
 - CZE [jlusticky]
@@ -166,8 +165,6 @@ subfolder2
 *********************************************************
 ! Old version news
 *********************************************************
-
-
 Version 5:
 - Stand-alone use of filemanager, you can open and select files also dividing them according to the type (video, images and all files)
 
@@ -184,7 +181,6 @@ Version 4:
 - fix folder delete bug	
 
 Version 3:
-
 - With this plugin you can also set automatic resizing of uploaded images.
 - Moreover you can set the permits to delete files, folder and create folder.
 - This version support advanced tab on image plugin
@@ -194,13 +190,9 @@ Version 3:
 *********************************************************
 ! Credits
 *********************************************************
-
 Bootstrap => http://twitter.github.io/bootstrap/
 Bootstrap Lightbox => http://jbutz.github.io/bootstrap-lightbox/
 Dropzonejs => http://www.dropzonejs.com/
 Fancybox => http://fancybox.net/
 TouchSwipe => http://labs.rampinteractive.co.uk/touchSwipe/demos/
-
 *********************************************************
-
-Enjoy !

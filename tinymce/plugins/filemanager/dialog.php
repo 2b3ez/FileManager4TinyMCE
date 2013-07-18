@@ -12,6 +12,7 @@ include('upload.php');
 include 'config.php';
 include('utils.php');
 
+if(isset($_GET['popup'])) $popup= $_GET['popup']; else $popup=0;
 
 if (isset($_GET['fldr']) && !empty($_GET['fldr'])) {
     $subdir = trim($_GET['fldr'],'/') . '/';
@@ -93,6 +94,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 	<script type="text/javascript" src="js/include.js"></script>
     </head>
     <body>
+		<input type="hidden" id="popup" value="<?php echo $popup; ?>" />
 		<input type="hidden" id="track" value="<?php echo $_GET['editor']; ?>" />
 		<input type="hidden" id="cur_dir" value="<?php echo $cur_dir; ?>" />
 		<input type="hidden" id="cur_dir_thumb" value="<?php echo $thumbs_path.$subdir; ?>" />
@@ -113,6 +115,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 			<input type="hidden" name="fldr" value="<?php echo $_GET['fldr']?>"/>
 			<input type="hidden" name="type" value="<?php echo $_GET['type']?>"/>
 			<input type="hidden" name="field_id" value="<?php echo $_GET['field_id']?>"/>
+			<input type="hidden" name="popup" value="<?php echo $popup; ?>"/>
 			<input type="hidden" name="editor" value="<?php echo $_GET['editor']?>"/>
 			<input type="hidden" name="lang" value="<?php echo $_GET['lang']?>"/>
                         <input type="hidden" name="subfolder" value="<?php echo $_GET['subfolder']?>"/>
@@ -171,7 +174,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 	<?php 
 	$link="dialog.php?type=".$_GET['type']."&editor=";
 	$link.=$_GET['editor'] ? $_GET['editor'] : 'mce_0';
-	$link.="&lang=";
+	$link.="&popup=".$popup."&lang=";
 	$link.=$_GET['lang'] ? $_GET['lang'] : 'en_EN';
 	$link.="&field_id=";
 	$link.=$_GET['field_id'] ? $_GET['field_id'] : '';
@@ -193,7 +196,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 	<?php }
 	}
 	?>
-	<li class="pull-right"><a id="refresh" href="dialog.php?type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&subfolder=<?php echo $subfolder ?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $subdir ?>"><i class="icon-refresh"></i></a></li>
+	<li class="pull-right"><a id="refresh" href="dialog.php?type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&subfolder=<?php echo $subfolder ?>&popup=<?php echo $popup;?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $subdir ?>"><i class="icon-refresh"></i></a></li>
 	</ul>
     </div>
     <!----- breadcrumb div end ------->
@@ -245,7 +248,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 			<li>
 				<figure>
 				    <a title="<?php echo lang_Open?>"
-				    href="dialog.php?type=<?php echo $_GET['type']?>&subfolder=<?php echo $subfolder ?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $src ?>">
+				    href="dialog.php?type=<?php echo $_GET['type']?>&subfolder=<?php echo $subfolder ?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&popup=<?php echo $popup;?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $src ?>">
 			<?php if($file==".."){ ?>
 				    <div class="img-precontainer">
 					<div class="img-container directory"><span></span>
