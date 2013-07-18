@@ -44,17 +44,25 @@ $(document).ready(function(){
 		});
 		}
 	});
-	//Enable swiping...
-	$(".box").swipe( {
-		//Generic swipe handler for all directions
-		swipe:function(event, direction, distance, duration, fingerCount) {
-			$(this).parent().toggleClass('cs-hover');	
-		},
-		//Default is 75px, set to 0 for demo so any distance triggers swipe
-	   threshold:30
-	});
 	if (!Modernizr.touch) {
 	    $('#help').hide();
+	}else{
+	    //Enable swiping...
+	    $(".box").swipe( {
+		    //Generic swipe handler for all directions
+		    swipe:function(event, direction, distance, duration, fingerCount) {
+			    //$(this).parent().toggleClass('cs-hover');
+			    if ($(this).attr('toggle')==1) {
+				$(this).attr('toggle',0);
+				$(this).animate({top: "0px"} ,{queue:false,duration:300});
+			    }else{
+				$(this).attr('toggle',1);
+				$(this).animate({top: "-30px"} ,{queue:false,duration:300});
+			    }
+		    },
+		    //Default is 75px, set to 0 for demo so any distance triggers swipe
+	       threshold:30
+	    });
 	}
 	if(!Modernizr.csstransitions) { // Test if CSS transitions are supported
             
