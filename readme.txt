@@ -195,4 +195,5 @@ Bootstrap Lightbox => http://jbutz.github.io/bootstrap-lightbox/
 Dropzonejs => http://www.dropzonejs.com/
 Fancybox => http://fancybox.net/
 TouchSwipe => http://labs.rampinteractive.co.uk/touchSwipe/demos/
+PHP Image Magician => http://phpimagemagician.jarrodoberto.com/‎
 *********************************************************
