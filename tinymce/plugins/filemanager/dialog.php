@@ -196,7 +196,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 	<?php }
 	}
 	?>
-	<li class="pull-right"><a id="refresh" href="dialog.php?type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&subfolder=<?php echo $subfolder ?>&popup=<?php echo $popup;?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $subdir ?>"><i class="icon-refresh"></i></a></li>
+	<li class="pull-right"><a id="refresh" href="dialog.php?type=<?php echo $_GET['type']?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&subfolder=<?php echo $subfolder ?>&popup=<?php echo $popup;?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $subdir ?>&<?php echo uniqid() ?>"><i class="icon-refresh"></i></a></li>
 	</ul>
     </div>
     <!----- breadcrumb div end ------->
@@ -248,7 +248,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 			<li>
 				<figure>
 				    <a title="<?php echo lang_Open?>"
-				    href="dialog.php?type=<?php echo $_GET['type']?>&subfolder=<?php echo $subfolder ?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&popup=<?php echo $popup;?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $src ?>">
+				    href="dialog.php?type=<?php echo $_GET['type']?>&subfolder=<?php echo $subfolder ?>&editor=<?php echo $_GET['editor'] ? $_GET['editor'] : 'mce_0'; ?>&popup=<?php echo $popup;?>&field_id=<?php echo $_GET['field_id'] ? $_GET['field_id'] : '';?>&lang=<?php echo $_GET['lang'] ? $_GET['lang'] : 'en_EN'; ?>&fldr=<?php echo $src ?>&<?php echo uniqid() ?>">
 			<?php if($file==".."){ ?>
 				    <div class="img-precontainer">
 					<div class="img-container directory"><span></span>
