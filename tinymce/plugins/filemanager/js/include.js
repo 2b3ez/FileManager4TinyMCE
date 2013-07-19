@@ -1,4 +1,3 @@
-
 $(document).ready(function(){	    
     
     $('input[name=radio-sort]').click(function(){
@@ -40,7 +39,7 @@ $(document).ready(function(){
 			  url: "create_folder.php",
 			  data: {path: folder_path, path_thumb: folder_path_thumb}
 			}).done(function( msg ) {
-			window.location.href = $('#refresh').attr('href');
+			window.location.href = $('#refresh').attr('href') + '&' + new Date().getTime();
 		});
 		}
 	});
