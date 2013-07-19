@@ -20,7 +20,7 @@ $(document).ready(function(){
 	});
 	$('.close-uploader').click(function(){
 		$('.uploader').hide(500);
-		window.location.href = $('#refresh').attr('href');
+		window.location.href = $('#refresh').attr('href') + '&' + new Date().getTime();;
 	});
 	$('.preview').click(function(){
 		$('#full-img').attr('src',$(this).data('url'));
