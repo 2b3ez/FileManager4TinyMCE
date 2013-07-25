@@ -69,7 +69,16 @@ if (!empty($_FILES) && $upload_files) {
     }
 }
 if(isset($_POST['submit'])){
-	header("location: dialog.php?type=".$_POST['type']."&lang=".$_POST['lang']."&subfolder=".$_POST['subfolder']."&popup=".$_POST['popup']."&field_id=".$_POST['field_id']."&editor=".$_POST['editor']."&fldr=".$_POST['fldr']);
+    $query = http_build_query(array(
+        'type'      => $_POST['type'],
+        'lang'      => $_POST['lang'],
+        'subfolder' => $_POST['subfolder'],
+        'popup'     => $_POST['popup'],
+        'field_id'  => $_POST['field_id'],
+        'editor'    => $_POST['editor'],
+        'fldr'      => $_POST['fldr'],
+    ));
+    header("location: dialog.php?" . $query);
 }
 
-?>      
+?>
