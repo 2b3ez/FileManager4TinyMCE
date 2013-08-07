@@ -1,3 +1,10 @@
+******************************************************************************************************************
+
+NEW version 7 released on http://www.responsivefilemanager.com
+NEW version 7 released on http://www.responsivefilemanager.com
+NEW version 7 released on http://www.responsivefilemanager.com
+
+******************************************************************************************************************
 *********************************************************
 ! FileManager for TinyMCE Version 6.2.0
 *********************************************************
