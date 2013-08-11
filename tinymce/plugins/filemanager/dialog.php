@@ -83,7 +83,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 		    maxFilesize: <?php echo $MaxSizeUpload; ?>, // MB
 		    url: "upload.php",
 		    accept: function(file, done) {
-		    var extension=file.name.split('.').pop();
+		    var extension=file.name.split('.').pop().toLowerCase();
 		      if ($.inArray(extension, allowed_ext) > -1) {
 			done();
 		      }
