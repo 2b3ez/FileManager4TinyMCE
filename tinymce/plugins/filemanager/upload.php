@@ -23,7 +23,7 @@ if (!empty($_FILES) && $upload_files) {
     $targetFileThumb =  $targetPathThumb. $_FILES['file']['name']; 
     move_uploaded_file($tempFile,$targetFile);
     
-    if(in_array(substr(strrchr($_FILES['file']['name'],'.'),1),$ext_img)) $is_img=true;
+    if(in_array(strtolower(substr(strrchr($_FILES['file']['name'],'.'),1)),$ext_img)) $is_img=true;
     else $is_img=false;
 
     if($is_img){
