@@ -287,7 +287,7 @@ if(!isset($_GET['field_id'])) $_GET['field_id']='';
 			    $is_img=false;
 			    $is_video=false;
 			    $show_original=false;
-			    $file_ext = substr(strrchr($file,'.'),1);
+			    $file_ext = strtolower(substr(strrchr($file,'.'),1));
 			    if(in_array($file_ext, $ext)){
 			    if(in_array($file_ext, $ext_img)){
 				$src = $base_url . $cur_dir . $file;
