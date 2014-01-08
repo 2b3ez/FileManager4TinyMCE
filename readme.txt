@@ -3,9 +3,9 @@
 
 
 
-NEW VERSION 8!!!!!
+NEW VERSION 9!!!!!
 
-NEW version 8 released on http://www.responsivefilemanager.com
+NEW version 9 released on http://www.responsivefilemanager.com
 
 
 
